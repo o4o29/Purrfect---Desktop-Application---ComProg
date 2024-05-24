@@ -1,3 +1,5 @@
+
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -11,7 +13,7 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JTable;
 
-public class resultPetID {
+public class resultPetInformation {
 
 	private JFrame frame;
 	private JTextField textField;
@@ -24,7 +26,7 @@ public class resultPetID {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					resultPetID window = new resultPetID();
+					resultPetInformation window = new resultPetInformation();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -36,7 +38,7 @@ public class resultPetID {
 	/**
 	 * Create the application.
 	 */
-	public resultPetID() {
+	public resultPetInformation() {
 		initialize();
 	}
 
