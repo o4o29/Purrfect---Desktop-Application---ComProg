@@ -1,6 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
-
+import java.sql.SQLException;
 
 public class progressBar {
     public static void main(String[] args) {
@@ -45,8 +45,7 @@ public class progressBar {
         frmPurrfectSplash.getContentPane().add(buttonPanel);
 
         // Create the start button
-        JButton startButton = 
-        		new JButton("Start Application");
+        JButton startButton = new JButton("Start Application");
         startButton.setBackground(Color.PINK);
         startButton.setForeground(Color.BLACK);
         startButton.setFont(new Font("Verdana", Font.PLAIN, 14));
@@ -65,7 +64,6 @@ public class progressBar {
         lblNewLabel.setFont(new Font("Verdana", Font.PLAIN, 16));
         lblNewLabel.setBounds(280, 178, 172, 27);
         frmPurrfectSplash.getContentPane().add(lblNewLabel);
-        
 
         JLabel lblVersion = new JLabel("Version 1.0");
         lblVersion.setFont(new Font("Times New Roman", Font.PLAIN, 12));
@@ -76,29 +74,26 @@ public class progressBar {
         lblAllRights.setFont(new Font("Times New Roman", Font.PLAIN, 12));
         lblAllRights.setBounds(292, 358, 135, 27);
         frmPurrfectSplash.getContentPane().add(lblAllRights);
-        
+
         JLabel logo = new JLabel("");
-        
         Image img1 = new ImageIcon(loginWall.class.getResource("logo_purrfect.png")).getImage();
         logo.setIcon(new ImageIcon(img1));
-        
         logo.setBounds(0, 11, 214, 185);
         frmPurrfectSplash.getContentPane().add(logo);
-        
+
         JLabel lblNewLabel_1 = new JLabel("PURRFECT");
         lblNewLabel_1.setForeground(new Color(255, 20, 147));
         lblNewLabel_1.setBackground(new Color(255, 20, 147));
         lblNewLabel_1.setFont(new Font("Verdana", Font.BOLD, 60));
         lblNewLabel_1.setBounds(241, 25, 379, 100);
         frmPurrfectSplash.getContentPane().add(lblNewLabel_1);
-        
+
         JLabel lblNewLabel_1_1 = new JLabel("Veterinary Clinic Management System\r\n");
         lblNewLabel_1_1.setForeground(new Color(255, 20, 147));
         lblNewLabel_1_1.setFont(new Font("Verdana", Font.PLAIN, 25));
         lblNewLabel_1_1.setBackground(new Color(255, 20, 147));
         lblNewLabel_1_1.setBounds(185, 111, 490, 40);
         frmPurrfectSplash.getContentPane().add(lblNewLabel_1_1);
-
 
         frmPurrfectSplash.setVisible(true);
 
@@ -108,17 +103,24 @@ public class progressBar {
                 // Simulate progress steps
                 updateProgressBar(progressBar, 10);
                 updateProgressBar(progressBar, 30);
-                updateProgressBar(progressBar, 60);
+
+                // Establish the database connection
+                try {
+                    DatabaseManager.getInstance();
+                    updateProgressBar(progressBar, 60);
+                    System.out.println("Database Connected eaheahaew");
+                } catch (SQLException ex) {
+                    updateProgressBar(progressBar, 0); // Reset progress on error
+                    JOptionPane.showMessageDialog(frmPurrfectSplash, "Database connection failed: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+
                 updateProgressBar(progressBar, 75);
                 updateProgressBar(progressBar, 100);
-                
-                
+
                 SwingUtilities.invokeLater(() -> {
-                	
-                	frmPurrfectSplash.dispose();
-                    new loginWall().setVisible(true);
-                  
-                    
+                    frmPurrfectSplash.dispose();
+                    new loginWall();
                 });
             });
             thread.start();
@@ -140,5 +142,3 @@ public class progressBar {
         }
     }
 }
-
-
