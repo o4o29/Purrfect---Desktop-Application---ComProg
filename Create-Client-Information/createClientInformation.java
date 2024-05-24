@@ -1,44 +1,26 @@
 import java.awt.EventQueue;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Color;
-import javax.swing.JLabel;
-import javax.swing.JTextArea;
 import java.awt.Font;
-import javax.swing.JTextField;
-import javax.swing.JButton;
+
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 public class createClientInformation extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_2;
-	private JTextField textField_1;
-	private JTextField textField_3;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					createClientInformation frame = new createClientInformation();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
-	public createClientInformation() {
+	private JTextField firstname_field;
+	private JTextField lastname_field;
+	private JTextArea address_field;
+	private JTextField contact_field;
+	private JTextField email_field;
+	
+	
+	private void initialize() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		setSize(713, 436); 
@@ -66,11 +48,11 @@ public class createClientInformation extends JFrame {
 		textArea.setBounds(0, 0, 697, 115);
 		contentPane.add(textArea);
 		
-		JButton btnNewButton_2_1_1 = new JButton("BACK");
-		btnNewButton_2_1_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		btnNewButton_2_1_1.setBackground(new Color(255, 240, 245));
-		btnNewButton_2_1_1.setBounds(10, 361, 101, 25);
-		contentPane.add(btnNewButton_2_1_1);
+		JButton btnBack = new JButton("BACK");
+		btnBack.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		btnBack.setBackground(new Color(255, 240, 245));
+		btnBack.setBounds(10, 361, 101, 25);
+		contentPane.add(btnBack);
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(255, 182, 193));
@@ -78,59 +60,99 @@ public class createClientInformation extends JFrame {
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
-		JLabel lblNewLabel_2 = new JLabel("First Name:");
-		lblNewLabel_2.setBounds(38, 24, 76, 19);
-		panel.add(lblNewLabel_2);
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		JLabel lblFirstName = new JLabel("First Name:");
+		lblFirstName.setBounds(38, 24, 76, 19);
+		panel.add(lblFirstName);
+		lblFirstName.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		
-		textField = new JTextField();
-		textField.setBounds(144, 25, 248, 20);
-		panel.add(textField);
-		textField.setColumns(10);
+		firstname_field = new JTextField();
+		firstname_field.setBounds(144, 25, 248, 20);
+		panel.add(firstname_field);
+		firstname_field.setColumns(10);
 		
-		JLabel lblNewLabel_2_1 = new JLabel("Last Name:");
-		lblNewLabel_2_1.setBounds(38, 54, 96, 14);
-		panel.add(lblNewLabel_2_1);
-		lblNewLabel_2_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		JLabel lblLastName = new JLabel("Last Name:");
+		lblLastName.setBounds(38, 54, 96, 14);
+		panel.add(lblLastName);
+		lblLastName.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(144, 53, 248, 20);
-		panel.add(textField_2);
+		lastname_field = new JTextField();
+		lastname_field.setColumns(10);
+		lastname_field.setBounds(144, 53, 248, 20);
+		panel.add(lastname_field);
 		
-		JLabel lblNewLabel_2_1_1 = new JLabel("Address:");
-		lblNewLabel_2_1_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel_2_1_1.setBounds(38, 79, 106, 14);
-		panel.add(lblNewLabel_2_1_1);
+		JLabel lblAddress = new JLabel("Address:");
+		lblAddress.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblAddress.setBounds(38, 79, 106, 14);
+		panel.add(lblAddress);
 		
-		JTextArea textArea_1 = new JTextArea();
-		textArea_1.setBounds(144, 79, 248, 51);
-		panel.add(textArea_1);
+		address_field = new JTextArea();	
+		address_field.setBounds(144, 79, 248, 51);
+		panel.add(address_field);
 		
-		JLabel lblNewLabel_2_1_1_1 = new JLabel("Contact No.:");
-		lblNewLabel_2_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel_2_1_1_1.setBounds(38, 136, 106, 14);
-		panel.add(lblNewLabel_2_1_1_1);
+		JLabel lblContact = new JLabel("Contact No.:");
+		lblContact.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblContact.setBounds(38, 136, 106, 14);
+		panel.add(lblContact);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(144, 135, 248, 20);
-		panel.add(textField_1);
+		contact_field = new JTextField();
+		contact_field.setColumns(10);
+		contact_field.setBounds(144, 135, 248, 20);
+		panel.add(contact_field);
 		
-		JLabel lblNewLabel_2_1_1_1_1 = new JLabel("Email Address:");
-		lblNewLabel_2_1_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel_2_1_1_1_1.setBounds(38, 161, 106, 14);
-		panel.add(lblNewLabel_2_1_1_1_1);
+		JLabel lblEmailAddress = new JLabel("Email Address:");
+		lblEmailAddress.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblEmailAddress.setBounds(38, 161, 106, 14);
+		panel.add(lblEmailAddress);
 		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(144, 160, 248, 20);
-		panel.add(textField_3);
+		email_field = new JTextField();
+		email_field.setColumns(10);
+		email_field.setBounds(144, 160, 248, 20);
+		panel.add(email_field);
 		
-		JButton btnNewButton_2_1_1_1 = new JButton("CREATE CLIENT\r\n");
-		btnNewButton_2_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		btnNewButton_2_1_1_1.setBackground(new Color(255, 240, 245));
-		btnNewButton_2_1_1_1.setBounds(144, 197, 150, 25);
-		panel.add(btnNewButton_2_1_1_1);
+		JButton btnCreateClient = new JButton("CREATE CLIENT\r\n");
+		btnCreateClient.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		btnCreateClient.setBackground(new Color(255, 240, 245));
+		btnCreateClient.setBounds(144, 197, 150, 25);
+		panel.add(btnCreateClient);
+		
+		
+		// BUTTON LISTENERS
+		btnCreateClient.addActionListener(e -> {
+            String firstname = firstname_field.getText();
+            String lastname = lastname_field.getText();
+            String address = address_field.getText();
+            String contact = contact_field.getText();
+            String email = email_field.getText();
+
+            try {
+                DatabaseManager dbManager = DatabaseManager.getInstance();
+                dbManager.insertClient(firstname, lastname, address, contact, email);
+                JOptionPane.showMessageDialog(this, "Client created successfully!");
+                
+                SwingUtilities.invokeLater(() -> {
+                	this.dispose();
+                    new searchClientAndPet();
+                });
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(this, "Error creating client: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        });
+		
+		btnBack.addActionListener(e -> {
+        	this.dispose();
+        	new searchClientAndPet();
+        });
+	}
+	
+	
+	public static void main(String[] args) {
+		SwingUtilities.invokeLater(() -> {
+			new createClientInformation();
+		});
+	}
+	
+	public createClientInformation() {
+		initialize();
+		this.setVisible(true);
 	}
 }
