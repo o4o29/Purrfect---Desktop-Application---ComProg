@@ -8,6 +8,7 @@ import java.awt.Font;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
 import javax.swing.border.EtchedBorder;
 import javax.swing.JButton;
 
@@ -20,28 +21,7 @@ public class Prescription {
 	private JTextField textField_3;
 	private JTextField textField_4;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Prescription window = new Prescription();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the application.
-	 */
-	public Prescription() {
-		initialize();
-	}
+	
 
 	/**
 	 * Initialize the contents of the frame.
@@ -169,11 +149,30 @@ public class Prescription {
 		lblAdditionalInstructions_1.setBounds(10, 137, 131, 14);
 		panel_1.add(lblAdditionalInstructions_1);
 		
-		JButton btnBackToDashboard = new JButton("Back to Dashboard");
-		btnBackToDashboard.setFont(new Font("Verdana", Font.PLAIN, 13));
-		btnBackToDashboard.setBounds(509, 363, 167, 23);
-		frame.getContentPane().add(btnBackToDashboard);
+		JButton btnBack = new JButton("Back to Dashboard");
+		btnBack.setFont(new Font("Verdana", Font.PLAIN, 13));
+		btnBack.setBounds(509, 363, 167, 23);
+		frame.getContentPane().add(btnBack);
 		frame.setBounds(100, 100, 713, 436);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		
+		// BUTTON LISTENERS
+		btnBack.addActionListener(e -> {
+        	frame.dispose();
+        	new Dashboard();
+        });
+}
+	
+
+	public static void main(String[] args) {
+		SwingUtilities.invokeLater(() -> {
+    		new Prescription();
+        });
+	}
+
+	public Prescription() {
+		initialize();
+		frame.setVisible(true);
 	}
 }
