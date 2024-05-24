@@ -8,38 +8,15 @@ import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
 
 public class Appointment {
 
 	private JFrame frame;
 	private JTextField textField;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Appointment window = new Appointment();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
-	/**
-	 * Create the application.
-	 */
-	public Appointment() {
-		initialize();
-	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize() {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(255, 228, 225));
@@ -47,16 +24,16 @@ public class Appointment {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel lblAppointment = new JLabel("APPOINTMENT");
-		lblAppointment.setForeground(Color.WHITE);
-		lblAppointment.setFont(new Font("Century Gothic", Font.BOLD, 55));
-		lblAppointment.setBounds(150, 40, 381, 75);
-		frame.getContentPane().add(lblAppointment);
+		JLabel btnAppointment = new JLabel("APPOINTMENT");
+		btnAppointment.setForeground(Color.WHITE);
+		btnAppointment.setFont(new Font("Century Gothic", Font.BOLD, 55));
+		btnAppointment.setBounds(150, 40, 381, 75);
+		frame.getContentPane().add(btnAppointment);
 		
-		JButton btnNewButton = new JButton("BACK");
-		btnNewButton.setFont(new Font("Verdana", Font.PLAIN, 13));
-		btnNewButton.setBounds(10, 363, 89, 23);
-		frame.getContentPane().add(btnNewButton);
+		JButton btnBack = new JButton("BACK");
+		btnBack.setFont(new Font("Verdana", Font.PLAIN, 13));
+		btnBack.setBounds(10, 363, 89, 23);
+		frame.getContentPane().add(btnBack);
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(255, 182, 193));
@@ -105,6 +82,25 @@ public class Appointment {
 		textArea_1.setBackground(new Color(255, 182, 193));
 		textArea_1.setBounds(0, 0, 697, 125);
 		frame.getContentPane().add(textArea_1);
+		
+		
+		// BUTTON LISTENERS
+		btnBack.addActionListener(e -> {
+        	frame.dispose();
+        	new Dashboard();
+        });
 	}
 
+	
+
+	public static void main(String[] args) {
+		SwingUtilities.invokeLater(() -> {
+			new Appointment();
+		});
+	}
+
+	public Appointment() {
+		initialize();
+		frame.setVisible(true);
+	}
 }
