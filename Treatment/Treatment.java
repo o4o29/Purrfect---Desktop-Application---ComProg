@@ -7,10 +7,11 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
 import javax.swing.JButton;
 import javax.swing.JRadioButton;
 
-public class treatmentService {
+public class Treatment {
 
 	private JFrame frame;
 	private JTextField textField;
@@ -25,28 +26,8 @@ public class treatmentService {
 	private JTextField textField_10;
 	private JTextField textField_7;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					treatmentService window = new treatmentService();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
-	/**
-	 * Create the application.
-	 */
-	public treatmentService() {
-		initialize();
-	}
+	
 
 	/**
 	 * Initialize the contents of the frame.
@@ -256,14 +237,33 @@ public class treatmentService {
 		textField_2.setBounds(76, 9, 179, 20);
 		panel_2.add(textField_2);
 		
-		JButton btnSubmitDetails = new JButton("BACK TO DASHBOARD");
+		JButton btnBack = new JButton("BACK TO DASHBOARD");
+		btnBack.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		btnBack.setBounds(10, 363, 202, 23);
+		frame.getContentPane().add(btnBack);
+		
+		JButton btnSubmitDetails = new JButton("SUBMIT DETAILS");
 		btnSubmitDetails.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		btnSubmitDetails.setBounds(10, 363, 202, 23);
+		btnSubmitDetails.setBounds(474, 369, 202, 23);
 		frame.getContentPane().add(btnSubmitDetails);
 		
-		JButton btnSubmitDetails_2 = new JButton("SUBMIT DETAILS");
-		btnSubmitDetails_2.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		btnSubmitDetails_2.setBounds(474, 369, 202, 23);
-		frame.getContentPane().add(btnSubmitDetails_2);
+		
+		// BUTTON LISTENERS
+		btnBack.addActionListener(e -> {
+        	frame.dispose();
+        	new Dashboard();
+        });
+	}
+	
+	
+	public static void main(String[] args) {
+		SwingUtilities.invokeLater(() -> {
+			new Treatment();
+		});
+	}
+
+	public Treatment() {
+		initialize();
+		frame.setVisible(true);
 	}
 }
