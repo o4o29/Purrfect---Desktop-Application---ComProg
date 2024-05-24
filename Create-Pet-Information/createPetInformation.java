@@ -1,3 +1,5 @@
+
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -8,6 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import java.awt.Font;
 import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
 import javax.swing.JButton;
 import javax.swing.JRadioButton;
 
@@ -15,34 +18,18 @@ public class createPetInformation extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_2;
-	private JTextField textField_1;
-	private JTextField textField_4;
-	private JTextField textField_3;
-	private JTextField textField_5;
-	private JTextField textField_6;
+	private JTextField clientId_field;
+	private JTextField petname_field;
+	private JTextField species_field;
+	private JTextField breed_field;
+	private JTextField weight_field;
+	private JTextField age_field;
+	private JTextField color_field;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					createPetInformation frame = new createPetInformation();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
-	/**
-	 * Create the frame.
-	 */
-	public createPetInformation() {
+
+	
+	private void initialize() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		setSize(713, 436); 
@@ -70,11 +57,11 @@ public class createPetInformation extends JFrame {
 		textArea.setBounds(0, 0, 697, 115);
 		contentPane.add(textArea);
 		
-		JButton btnNewButton_2_1_1 = new JButton("BACK");
-		btnNewButton_2_1_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		btnNewButton_2_1_1.setBackground(new Color(255, 240, 245));
-		btnNewButton_2_1_1.setBounds(10, 361, 101, 25);
-		contentPane.add(btnNewButton_2_1_1);
+		JButton backBtn = new JButton("BACK");
+		backBtn.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		backBtn.setBackground(new Color(255, 240, 245));
+		backBtn.setBounds(10, 361, 101, 25);
+		contentPane.add(backBtn);
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(255, 182, 193));
@@ -82,50 +69,50 @@ public class createPetInformation extends JFrame {
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
-		JLabel lblNewLabel_2 = new JLabel("Client ID:");
-		lblNewLabel_2.setBounds(38, 24, 85, 19);
-		panel.add(lblNewLabel_2);
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		JLabel clientId_label = new JLabel("Client ID:");
+		clientId_label.setBounds(38, 24, 85, 19);
+		panel.add(clientId_label);
+		clientId_label.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		
-		textField = new JTextField();
-		textField.setBounds(130, 25, 145, 20);
-		panel.add(textField);
-		textField.setColumns(10);
+		clientId_field = new JTextField();
+		clientId_field.setBounds(130, 25, 145, 20);
+		panel.add(clientId_field);
+		clientId_field.setColumns(10);
 		
-		JLabel lblNewLabel_2_1 = new JLabel("Pet Name:");
-		lblNewLabel_2_1.setBounds(38, 59, 96, 14);
-		panel.add(lblNewLabel_2_1);
-		lblNewLabel_2_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		JLabel petname_label = new JLabel("Pet Name:");
+		petname_label.setBounds(38, 59, 96, 14);
+		panel.add(petname_label);
+		petname_label.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(130, 58, 145, 20);
-		panel.add(textField_2);
+		petname_field = new JTextField();
+		petname_field.setColumns(10);
+		petname_field.setBounds(130, 58, 145, 20);
+		panel.add(petname_field);
 		
-		JLabel lblNewLabel_2_1_1 = new JLabel("Species:");
-		lblNewLabel_2_1_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel_2_1_1.setBounds(38, 91, 106, 14);
-		panel.add(lblNewLabel_2_1_1);
+		JLabel petspecies_label = new JLabel("Species:");
+		petspecies_label.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		petspecies_label.setBounds(38, 91, 106, 14);
+		panel.add(petspecies_label);
 		
-		JLabel lblNewLabel_2_1_1_1 = new JLabel("Breed:");
-		lblNewLabel_2_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel_2_1_1_1.setBounds(38, 125, 106, 14);
-		panel.add(lblNewLabel_2_1_1_1);
+		species_field = new JTextField();
+		species_field.setColumns(10);
+		species_field.setBounds(130, 90, 145, 20);
+		panel.add(species_field);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(129, 124, 145, 20);
-		panel.add(textField_1);
+		JLabel breed_label = new JLabel("Breed:");
+		breed_label.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		breed_label.setBounds(38, 125, 106, 14);
+		panel.add(breed_label);
 		
-		JLabel lblNewLabel_2_1_1_1_1 = new JLabel("Gender:");
-		lblNewLabel_2_1_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel_2_1_1_1_1.setBounds(304, 91, 106, 14);
-		panel.add(lblNewLabel_2_1_1_1_1);
+		breed_field = new JTextField();
+		breed_field.setColumns(10);
+		breed_field.setBounds(129, 124, 145, 20);
+		panel.add(breed_field);
 		
-		textField_4 = new JTextField();
-		textField_4.setColumns(10);
-		textField_4.setBounds(130, 90, 145, 20);
-		panel.add(textField_4);
+		JLabel gender_label = new JLabel("Gender:");
+		gender_label.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		gender_label.setBounds(304, 91, 106, 14);
+		panel.add(gender_label);
 		
 		JRadioButton rdbtnNewRadioButton = new JRadioButton("Male");
 		rdbtnNewRadioButton.setFont(new Font("Tahoma", Font.PLAIN, 13));
@@ -139,40 +126,59 @@ public class createPetInformation extends JFrame {
 		rdbtnFemale.setBounds(441, 88, 109, 23);
 		panel.add(rdbtnFemale);
 		
-		JLabel lblNewLabel_2_2 = new JLabel("Weight:");
-		lblNewLabel_2_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel_2_2.setBounds(304, 24, 85, 19);
-		panel.add(lblNewLabel_2_2);
+		JLabel weight_label = new JLabel("Weight:");
+		weight_label.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		weight_label.setBounds(304, 24, 85, 19);
+		panel.add(weight_label);
 		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(382, 25, 145, 20);
-		panel.add(textField_3);
+		weight_field = new JTextField();
+		weight_field.setColumns(10);
+		weight_field.setBounds(382, 25, 145, 20);
+		panel.add(weight_field);
 		
-		JLabel lblNewLabel_2_2_1 = new JLabel("Age:");
-		lblNewLabel_2_2_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel_2_2_1.setBounds(304, 58, 85, 19);
-		panel.add(lblNewLabel_2_2_1);
+		JLabel age_label = new JLabel("Age:");
+		age_label.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		age_label.setBounds(304, 58, 85, 19);
+		panel.add(age_label);
 		
-		textField_5 = new JTextField();
-		textField_5.setColumns(10);
-		textField_5.setBounds(382, 58, 145, 20);
-		panel.add(textField_5);
+		age_field = new JTextField();
+		age_field.setColumns(10);
+		age_field.setBounds(382, 58, 145, 20);
+		panel.add(age_field);
 		
-		JLabel lblNewLabel_2_2_1_1 = new JLabel("Color/ Markings:");
-		lblNewLabel_2_2_1_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel_2_2_1_1.setBounds(304, 123, 109, 19);
-		panel.add(lblNewLabel_2_2_1_1);
+		JLabel color_label = new JLabel("Color/ Markings:");
+		color_label.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		color_label.setBounds(304, 123, 109, 19);
+		panel.add(color_label);
 		
-		textField_6 = new JTextField();
-		textField_6.setColumns(10);
-		textField_6.setBounds(418, 124, 109, 20);
-		panel.add(textField_6);
+		color_field = new JTextField();
+		color_field.setColumns(10);
+		color_field.setBounds(418, 124, 109, 20);
+		panel.add(color_field);
 		
 		JButton btnNewButton_2_1_1_1 = new JButton("CREATE CLIENT\r\n");
 		btnNewButton_2_1_1_1.setBounds(537, 361, 150, 25);
 		contentPane.add(btnNewButton_2_1_1_1);
 		btnNewButton_2_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		btnNewButton_2_1_1_1.setBackground(new Color(255, 240, 245));
+		
+		
+		// BUTTONS
+		backBtn.addActionListener(e -> {
+			this.dispose();
+			new searchClientAndPet();
+		});
+	}
+	
+	
+	public static void main(String[] args) {
+		SwingUtilities.invokeLater(() -> {
+			new createPetInformation();
+		});
+	}
+
+	public createPetInformation() {
+		initialize();
+		this.setVisible(true);
 	}
 }
