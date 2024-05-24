@@ -63,9 +63,9 @@ public class appointmentSuccessful {
 		btnNewButton.setBounds(21, 366, 89, 23);
 		frame.getContentPane().add(btnNewButton);
 		
-		JButton btnOtherSevices = new JButton("Submit Another Appointment");
+		JButton btnOtherSevices = new JButton("Go To Treatment");
 		btnOtherSevices.setFont(new Font("Verdana", Font.PLAIN, 13));
-		btnOtherSevices.setBounds(458, 368, 229, 23);
+		btnOtherSevices.setBounds(542, 368, 145, 23);
 		frame.getContentPane().add(btnOtherSevices);
 		
 		JLabel lblAppointmentSuccessful = new JLabel("APPOINTMENT SUCCESSFUL");
