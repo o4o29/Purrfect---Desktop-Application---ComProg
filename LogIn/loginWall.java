@@ -8,7 +8,7 @@ public class loginWall extends JFrame {
     private JTextField txtAdminID;
     private JTextField txtPassword;
 
-    public loginWall() {
+    private void initialize() {
         setTitle("Paws and Claws VCMS - LogIn Wall");
         setSize(713, 436); 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -102,17 +102,30 @@ public class loginWall extends JFrame {
         logo.setBounds(10, 88, 299, 298);
         LogInPanel.add(logo);
         
-     
+        
+        // BUTTON LISTENERS
         btnLogin.addActionListener(e -> {
-            // Perform login actions
             JOptionPane.showMessageDialog(this, "Login successful!");
+            
+            SwingUtilities.invokeLater(() -> {
+            	this.dispose();
+            	new Dashboard();   
+            });
+        });
+        
+        btnExit.addActionListener(e -> {
+        	this.dispose();
         });
     }
 
+    public loginWall() {
+    	initialize();
+        this.setVisible(true);
+    }
+    
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            loginWall loginWall = new loginWall();
-            loginWall.setVisible(true);
+    	SwingUtilities.invokeLater(() -> {
+    		new loginWall();
         });
     }
 }
