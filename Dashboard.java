@@ -1,6 +1,5 @@
 
-
-
+import javax.swing.*;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -18,6 +17,7 @@ import javax.swing.JScrollBar;
 import javax.swing.JTextField;
 import javax.swing.JSlider;
 import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
 import javax.swing.border.LineBorder;
 import javax.swing.ImageIcon;
 
@@ -40,9 +40,8 @@ public class Dashboard implements ActionListener{
     
     private JButton btnInformation;
     private JButton btnAppointment;
-    private JButton btnServices;
+    private JButton btnTreatment;
     private JButton btnPrescription;
-    private JButton btnBilling;
     private JButton btnReports;
     private JButton btnLogout;
     private JButton btnExit;
@@ -58,35 +57,9 @@ public class Dashboard implements ActionListener{
     
    
     /**
-     * Launch the application.
-     */
-    public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    Dashboard window = new Dashboard();
-                    window.frame.setVisible(true);
-                    window.setTime();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
-
-    /**
-     * Create the application.
-     */
-    public Dashboard() {
-        initialize();
-    }
-
-    /**
      * Initialize the contents of the frame.
      */
     private void initialize() {
-    	
-    	
         frame = new JFrame("Dashboard");
         frame.getContentPane().setBackground(new Color(255, 228, 225));
         frame.getContentPane().setLayout(null);
@@ -111,34 +84,26 @@ public class Dashboard implements ActionListener{
         btnAppointment.setFocusable(false);
         frame.getContentPane().add(btnAppointment);
 
-        btnServices = new JButton("SERVICES");
-        btnServices.setBackground(new Color(255, 182, 193));
-        btnServices.setFont(new Font("Verdana", Font.PLAIN, 14));
-        btnServices.setBounds(349, 177, 144, 55);
-        btnServices.addActionListener(this);
-        btnServices.setFocusable(false);
-        frame.getContentPane().add(btnServices);
+        btnTreatment = new JButton("TREATMENT");
+        btnTreatment.setBackground(new Color(255, 182, 193));
+        btnTreatment.setFont(new Font("Verdana", Font.PLAIN, 14));
+        btnTreatment.setBounds(349, 177, 144, 55);
+        btnTreatment.addActionListener(this);
+        btnTreatment.setFocusable(false);
+        frame.getContentPane().add(btnTreatment);
 
         btnPrescription = new JButton("PRESCRIPTION");
         btnPrescription.setBackground(new Color(249,173,183));
         btnPrescription.setFont(new Font("Verdana", Font.PLAIN, 14));
-        btnPrescription.setBounds(24, 254, 144, 55);
+        btnPrescription.setBounds(107, 254, 144, 55);
         btnPrescription.addActionListener(this);
         btnPrescription.setFocusable(false);
         frame.getContentPane().add(btnPrescription);
 
-        btnBilling = new JButton("BILLING");
-        btnBilling.setBackground(new Color(249,173,183));
-        btnBilling.setFont(new Font("Verdana", Font.PLAIN, 14));
-        btnBilling.setBounds(185, 254, 144, 55);
-        btnBilling.addActionListener(this);
-        btnBilling.setFocusable(false);
-        frame.getContentPane().add(btnBilling);
-
         btnReports = new JButton("REPORTS");
         btnReports.setBackground(new Color(249,173,183));
         btnReports.setFont(new Font("Verdana", Font.PLAIN, 14));
-        btnReports.setBounds(349, 254, 144, 55);
+        btnReports.setBounds(268, 254, 144, 55);
         btnReports.addActionListener(this);
         btnReports.setFocusable(false);
         frame.getContentPane().add(btnReports);
@@ -252,44 +217,44 @@ public class Dashboard implements ActionListener{
         scrollBar.setBounds(83, 209, 17, 21);
         panelSched.add(scrollBar);
         
-                JPanel panelHead = new JPanel();
-                panelHead.setBackground(new Color(255, 228, 225));
-                panelHead.setBounds(0, 0, 697, 155);
-                frame.getContentPane().add(panelHead);
-                panelHead.setLayout(null);
-                JLabel logoLabel = new JLabel();
-                logoLabel.setIcon(logo);
-                logoLabel.setBounds(22, 11, 134, 133);
-                panelHead.add(logoLabel);
+        JPanel panelHead = new JPanel();
+        panelHead.setBackground(new Color(255, 228, 225));
+        panelHead.setBounds(0, 0, 697, 155);
+        frame.getContentPane().add(panelHead);
+        panelHead.setLayout(null);
+        JLabel logoLabel = new JLabel();
+        logoLabel.setIcon(logo);
+        logoLabel.setBounds(22, 11, 134, 133);
+        panelHead.add(logoLabel);
+        
+        timeLabel = new JLabel();
+        timeLabel.setForeground(new Color(255, 20, 147));
+        timeLabel.setFont(new Font("Verdana", Font.BOLD, 35));
+        timeLabel.setBounds(210, 47, 266, 43);
+        panelHead.add(timeLabel);
+        timeLabel.setText(time);
+        
+        dayLabel = new JLabel();
+        dayLabel.setForeground(new Color(255, 20, 147));
+        dayLabel.setBackground(new Color(255, 20, 147));
+        dayLabel.setFont(new Font("Century Gothic", Font.PLAIN, 20));
+        dayLabel.setBounds(210, 89, 139, 43);
+        panelHead.add(dayLabel);
+        dayLabel.setText(day);
                 
-                timeLabel = new JLabel();
-                timeLabel.setForeground(new Color(255, 20, 147));
-                timeLabel.setFont(new Font("Verdana", Font.BOLD, 35));
-                timeLabel.setBounds(210, 47, 266, 43);
-                panelHead.add(timeLabel);
-                timeLabel.setText(time);
-                
-                dayLabel = new JLabel();
-                dayLabel.setForeground(new Color(255, 20, 147));
-                dayLabel.setBackground(new Color(255, 20, 147));
-                dayLabel.setFont(new Font("Century Gothic", Font.PLAIN, 20));
-                dayLabel.setBounds(210, 89, 139, 43);
-                panelHead.add(dayLabel);
-                dayLabel.setText(day);
-                
-                        JLabel lblVcms = new JLabel("PURRFECT");
-                        lblVcms.setBounds(290, 0, 126, 64);
-                        panelHead.add(lblVcms);
-                        lblVcms.setForeground(new Color(255, 20, 147));
-                        lblVcms.setFont(new Font("Century Gothic", Font.BOLD, 25));
-                        
-                        dateLabel = new JLabel();
-                        dateLabel.setBounds(333, 89, 184, 43);
-                        panelHead.add(dateLabel);
-                        dateLabel.setForeground(new Color(255, 20, 147));
-                        dateLabel.setBackground(new Color(255, 20, 147));
-                        dateLabel.setFont(new Font("Century Gothic", Font.PLAIN, 20));
-                        dateLabel.setText(date);
+        JLabel lblVcms = new JLabel("PURRFECT");
+        lblVcms.setBounds(290, 0, 126, 64);
+        panelHead.add(lblVcms);
+        lblVcms.setForeground(new Color(255, 20, 147));
+        lblVcms.setFont(new Font("Century Gothic", Font.BOLD, 25));
+        
+        dateLabel = new JLabel();
+        dateLabel.setBounds(333, 89, 184, 43);
+        panelHead.add(dateLabel);
+        dateLabel.setForeground(new Color(255, 20, 147));
+        dateLabel.setBackground(new Color(255, 20, 147));
+        dateLabel.setFont(new Font("Century Gothic", Font.PLAIN, 20));
+        dateLabel.setText(date);
         
         /*dateSched = new JLabel();
         dateSched.setText((String) null);
@@ -330,35 +295,60 @@ public class Dashboard implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource().equals(btnInformation)) {
-			
+			frame.dispose();
+			new searchClientAndPet();
 		}
 		
 		if(e.getSource().equals(btnAppointment)) {
-			
+			frame.dispose();
+			new Appointment();
 		}	
 
-		if(e.getSource().equals(btnServices)) {
-			
+		if(e.getSource().equals(btnTreatment)) {
+			frame.dispose();
+			new Treatment();
 		}	
 
 		if(e.getSource().equals(btnPrescription)) {
-			
+			frame.dispose();
+			new Prescription();
 		}
 
-		if(e.getSource().equals(btnBilling)) {
-			
-		}	
 
 		if(e.getSource().equals(btnReports)) {
-			
+			frame.dispose();
+			new monthlyReports();
 		}	
 
 		if(e.getSource().equals(btnLogout)) {
+			int result = JOptionPane.showConfirmDialog(frame,"Are you sure you want to log out?", "Confirmation",
+		               JOptionPane.YES_NO_OPTION,
+		               JOptionPane.QUESTION_MESSAGE);
 			
+			if(result == JOptionPane.YES_OPTION) {
+				frame.dispose();
+				new loginWall();
+			} else if(result == JOptionPane.NO_OPTION) {
+				return;
+			}
 		}	
 
 		if(e.getSource().equals(btnExit)) {
-			
+			frame.dispose();
 		}	
 	}
+	
+	
+    public static void main(String[] args) {
+    	SwingUtilities.invokeLater(() -> {
+            new Dashboard();
+        });
+    
+    }
+
+    public Dashboard() {
+        initialize();
+        frame.setVisible(true);
+        setTime();
+    }
 }
