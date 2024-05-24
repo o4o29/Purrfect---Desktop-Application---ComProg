@@ -14,9 +14,9 @@ import javax.swing.JCheckBox;
 import javax.swing.JTable;
 import javax.swing.JButton;
 
-public class appointmentSuccessful {
+public class appointmentCreate{
 
-	JFrame frame;
+	private JFrame frame;
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
@@ -41,8 +41,9 @@ public class appointmentSuccessful {
 
 	/**
 	 * Create the application.
+	 * @wbp.parser.entryPoint
 	 */
-	public appointmentSuccessful() {
+	public appointmentCreate() {
 		initialize();
 	}
 
