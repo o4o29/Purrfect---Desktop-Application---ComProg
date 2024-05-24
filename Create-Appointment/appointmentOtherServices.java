@@ -1,27 +1,20 @@
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import javax.swing.JTextArea;
-import java.awt.BorderLayout;
 import java.awt.Color;
+import javax.swing.JTextArea;
 import javax.swing.JLabel;
 import java.awt.Font;
+import javax.swing.UIManager;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 import javax.swing.border.EtchedBorder;
 import javax.swing.JCheckBox;
-import javax.swing.JTable;
 import javax.swing.JButton;
 
-public class appointmentSuccessful {
+public class appointmentOtherServices {
 
 	private JFrame frame;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTable table;
 
 	/**
 	 * Launch the application.
@@ -30,7 +23,7 @@ public class appointmentSuccessful {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					appointmentSuccessful window = new appointmentSuccessful();
+					appointmentOtherServices window = new appointmentOtherServices();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -42,7 +35,7 @@ public class appointmentSuccessful {
 	/**
 	 * Create the application.
 	 */
-	public appointmentSuccessful() {
+	public appointmentOtherServices() {
 		initialize();
 	}
 
@@ -52,161 +45,142 @@ public class appointmentSuccessful {
 	private void initialize() {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(255, 228, 225));
-		frame.setBounds(100, 100, 713, 439);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		
+		JLabel lblCompleteAppointment_1 = new JLabel("2");
+		lblCompleteAppointment_1.setForeground(Color.WHITE);
+		lblCompleteAppointment_1.setFont(new Font("Century Gothic", Font.BOLD, 30));
+		lblCompleteAppointment_1.setBounds(10, -12, 17, 75);
+		frame.getContentPane().add(lblCompleteAppointment_1);
 		
 		JLabel lblCompleteAppointment = new JLabel("COMPLETE APPOINTMENT ");
 		lblCompleteAppointment.setForeground(Color.WHITE);
 		lblCompleteAppointment.setFont(new Font("Century Gothic", Font.BOLD, 30));
-		lblCompleteAppointment.setBounds(172, -11, 386, 75);
+		lblCompleteAppointment.setBounds(160, -12, 386, 75);
 		frame.getContentPane().add(lblCompleteAppointment);
-		
-		JPanel panel = new JPanel();
-		panel.setBackground(new Color(255, 239, 213));
-		panel.setForeground(new Color(255, 235, 205));
-		panel.setBounds(21, 67, 231, 115);
-		frame.getContentPane().add(panel);
-		panel.setLayout(null);
-		
-		JLabel lblNewLabel = new JLabel("Client ID:");
-		lblNewLabel.setBounds(10, 0, 81, 40);
-		panel.add(lblNewLabel);
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		
-		JLabel lblPetId = new JLabel("Pet ID:");
-		lblPetId.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		lblPetId.setBounds(10, 25, 81, 40);
-		panel.add(lblPetId);
-		
-		JLabel lblDate = new JLabel("Date: ");
-		lblDate.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		lblDate.setBounds(10, 50, 81, 40);
-		panel.add(lblDate);
-		
-		JLabel lblPetId_1_1 = new JLabel("Time:");
-		lblPetId_1_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		lblPetId_1_1.setBounds(10, 71, 81, 40);
-		panel.add(lblPetId_1_1);
-		
-		textField = new JTextField();
-		textField.setBounds(75, 11, 144, 20);
-		panel.add(textField);
-		textField.setColumns(10);
-		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(75, 36, 144, 20);
-		panel.add(textField_1);
-		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(75, 61, 144, 20);
-		panel.add(textField_2);
-		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(75, 82, 144, 20);
-		panel.add(textField_3);
-		
-		JLabel lblPetId_1_1_1 = new JLabel("Choose your Concern/ Service:");
-		lblPetId_1_1_1.setBackground(new Color(240, 240, 240));
-		lblPetId_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		lblPetId_1_1_1.setBounds(10, 186, 199, 40);
-		frame.getContentPane().add(lblPetId_1_1_1);
-		
-		JTextArea textArea_1_1 = new JTextArea();
-		textArea_1_1.setBackground(new Color(255, 182, 193));
-		textArea_1_1.setBounds(0, 193, 697, 28);
-		frame.getContentPane().add(textArea_1_1);
-		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "CheckUps", TitledBorder.LEFT, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		panel_1.setLayout(null);
-		panel_1.setForeground(new Color(255, 235, 205));
-		panel_1.setBackground(new Color(255, 239, 213));
-		panel_1.setBounds(21, 232, 199, 115);
-		frame.getContentPane().add(panel_1);
-		
-		JCheckBox chckbxNewCheckBox = new JCheckBox("Wellness Exams (Monitor)");
-		chckbxNewCheckBox.setBackground(new Color(255, 239, 213));
-		chckbxNewCheckBox.setBounds(6, 23, 162, 23);
-		panel_1.add(chckbxNewCheckBox);
-		
-		JCheckBox chckbxPreventiveCareadvice = new JCheckBox("Preventive Care \r\n(Advice and Treatment)\r\n");
-		chckbxPreventiveCareadvice.setBackground(new Color(255, 239, 213));
-		chckbxPreventiveCareadvice.setBounds(6, 49, 187, 23);
-		panel_1.add(chckbxPreventiveCareadvice);
-		
-		JPanel panel_1_1 = new JPanel();
-		panel_1_1.setBorder(new TitledBorder(null, "Diagnostic", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		panel_1_1.setLayout(null);
-		panel_1_1.setForeground(new Color(255, 235, 205));
-		panel_1_1.setBackground(new Color(255, 239, 213));
-		panel_1_1.setBounds(241, 232, 212, 115);
-		frame.getContentPane().add(panel_1_1);
-		
-		JCheckBox chckbxLaboratoryTesting = new JCheckBox("Laboratory Testing");
-		chckbxLaboratoryTesting.setBackground(new Color(255, 239, 213));
-		chckbxLaboratoryTesting.setBounds(6, 22, 162, 23);
-		panel_1_1.add(chckbxLaboratoryTesting);
-		
-		JCheckBox chckbxImagingServices = new JCheckBox("Imaging Services");
-		chckbxImagingServices.setBackground(new Color(255, 239, 213));
-		chckbxImagingServices.setBounds(6, 48, 162, 23);
-		panel_1_1.add(chckbxImagingServices);
-		
-		JCheckBox chckbxEcgAndEkg = new JCheckBox("ECG and EKG");
-		chckbxEcgAndEkg.setBackground(new Color(255, 239, 213));
-		chckbxEcgAndEkg.setBounds(6, 74, 162, 23);
-		panel_1_1.add(chckbxEcgAndEkg);
-		
-		JPanel panel_1_1_1 = new JPanel();
-		panel_1_1_1.setLayout(null);
-		panel_1_1_1.setForeground(new Color(255, 235, 205));
-		panel_1_1_1.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Surgery", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		panel_1_1_1.setBackground(new Color(255, 239, 213));
-		panel_1_1_1.setBounds(475, 232, 212, 115);
-		frame.getContentPane().add(panel_1_1_1);
-		
-		JCheckBox chckbxSpayingAndNeuturing = new JCheckBox("Spaying and Neuturing");
-		chckbxSpayingAndNeuturing.setBackground(new Color(255, 239, 213));
-		chckbxSpayingAndNeuturing.setBounds(6, 22, 162, 23);
-		panel_1_1_1.add(chckbxSpayingAndNeuturing);
-		
-		JCheckBox chckbxTumorRemoval = new JCheckBox("Tumor Removal");
-		chckbxTumorRemoval.setBackground(new Color(255, 239, 213));
-		chckbxTumorRemoval.setBounds(6, 45, 162, 23);
-		panel_1_1_1.add(chckbxTumorRemoval);
-		
-		JCheckBox chckbxWoundRepair = new JCheckBox("Wound Repair");
-		chckbxWoundRepair.setBackground(new Color(255, 239, 213));
-		chckbxWoundRepair.setBounds(6, 71, 162, 23);
-		panel_1_1_1.add(chckbxWoundRepair);
-		
-		JLabel lblCompleteAppointment_1 = new JLabel("1\r\n");
-		lblCompleteAppointment_1.setForeground(Color.WHITE);
-		lblCompleteAppointment_1.setFont(new Font("Century Gothic", Font.BOLD, 30));
-		lblCompleteAppointment_1.setBounds(10, -11, 17, 75);
-		frame.getContentPane().add(lblCompleteAppointment_1);
 		
 		JTextArea textArea_1 = new JTextArea();
 		textArea_1.setBackground(new Color(255, 182, 193));
 		textArea_1.setBounds(0, 0, 697, 56);
 		frame.getContentPane().add(textArea_1);
 		
-		table = new JTable();
-		table.setBounds(262, 67, 425, 106);
-		frame.getContentPane().add(table);
+		JLabel lblPetId_1_1_1 = new JLabel("Choose your Concern/ Service:");
+		lblPetId_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblPetId_1_1_1.setBackground(UIManager.getColor("Button.background"));
+		lblPetId_1_1_1.setBounds(10, 58, 199, 40);
+		frame.getContentPane().add(lblPetId_1_1_1);
+		
+		JTextArea textArea_1_1 = new JTextArea();
+		textArea_1_1.setBackground(new Color(255, 182, 193));
+		textArea_1_1.setBounds(0, 67, 697, 28);
+		frame.getContentPane().add(textArea_1_1);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setLayout(null);
+		panel_1.setForeground(new Color(255, 235, 205));
+		panel_1.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Dental Care", TitledBorder.LEFT, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		panel_1.setBackground(new Color(255, 239, 213));
+		panel_1.setBounds(10, 106, 199, 115);
+		frame.getContentPane().add(panel_1);
+		
+		JCheckBox chckbxTeethCleaning = new JCheckBox("Teeth Cleaning");
+		chckbxTeethCleaning.setBackground(new Color(255, 239, 213));
+		chckbxTeethCleaning.setBounds(6, 23, 162, 23);
+		panel_1.add(chckbxTeethCleaning);
+		
+		JCheckBox chckbxTeethRemoval = new JCheckBox("Teeth Removal");
+		chckbxTeethRemoval.setBackground(new Color(255, 239, 213));
+		chckbxTeethRemoval.setBounds(6, 49, 187, 23);
+		panel_1.add(chckbxTeethRemoval);
+		
+		JCheckBox chckbxOralHealthExam = new JCheckBox("Oral Health Exam");
+		chckbxOralHealthExam.setBackground(new Color(255, 239, 213));
+		chckbxOralHealthExam.setBounds(6, 75, 187, 23);
+		panel_1.add(chckbxOralHealthExam);
+		
+		JPanel panel_1_1 = new JPanel();
+		panel_1_1.setLayout(null);
+		panel_1_1.setForeground(new Color(255, 235, 205));
+		panel_1_1.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Internal Medicine", TitledBorder.LEFT, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		panel_1_1.setBackground(new Color(255, 239, 213));
+		panel_1_1.setBounds(227, 106, 199, 115);
+		frame.getContentPane().add(panel_1_1);
+		
+		JCheckBox chckbxMedicationManagement = new JCheckBox("Medication Management");
+		chckbxMedicationManagement.setBackground(new Color(255, 239, 213));
+		chckbxMedicationManagement.setBounds(6, 23, 162, 23);
+		panel_1_1.add(chckbxMedicationManagement);
+		
+		JCheckBox chckbxGastrointestinalDisorders = new JCheckBox("Gastrointestinal Disorders");
+		chckbxGastrointestinalDisorders.setBackground(new Color(255, 239, 213));
+		chckbxGastrointestinalDisorders.setBounds(6, 49, 187, 23);
+		panel_1_1.add(chckbxGastrointestinalDisorders);
+		
+		JCheckBox chckbxEndocrineDisorder = new JCheckBox("Endocrine Disorder");
+		chckbxEndocrineDisorder.setBackground(new Color(255, 239, 213));
+		chckbxEndocrineDisorder.setBounds(6, 73, 187, 23);
+		panel_1_1.add(chckbxEndocrineDisorder);
+		
+		JPanel panel_1_1_1 = new JPanel();
+		panel_1_1_1.setLayout(null);
+		panel_1_1_1.setForeground(new Color(255, 235, 205));
+		panel_1_1_1.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Dermatology", TitledBorder.LEFT, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		panel_1_1_1.setBackground(new Color(255, 239, 213));
+		panel_1_1_1.setBounds(444, 106, 199, 115);
+		frame.getContentPane().add(panel_1_1_1);
+		
+		JCheckBox chckbxNewCheckBox_1_1 = new JCheckBox("Skin Treatments");
+		chckbxNewCheckBox_1_1.setBackground(new Color(255, 239, 213));
+		chckbxNewCheckBox_1_1.setBounds(6, 23, 162, 23);
+		panel_1_1_1.add(chckbxNewCheckBox_1_1);
+		
+		JCheckBox chckbxPreventiveCareadvice_1_1 = new JCheckBox("Allergy Testing/ Treatments");
+		chckbxPreventiveCareadvice_1_1.setBackground(new Color(255, 239, 213));
+		chckbxPreventiveCareadvice_1_1.setBounds(6, 49, 187, 23);
+		panel_1_1_1.add(chckbxPreventiveCareadvice_1_1);
+		
+		JPanel panel_1_1_1_1 = new JPanel();
+		panel_1_1_1_1.setLayout(null);
+		panel_1_1_1_1.setForeground(new Color(255, 235, 205));
+		panel_1_1_1_1.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Dermatology", TitledBorder.LEFT, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		panel_1_1_1_1.setBackground(new Color(255, 239, 213));
+		panel_1_1_1_1.setBounds(132, 231, 199, 115);
+		frame.getContentPane().add(panel_1_1_1_1);
+		
+		JCheckBox chckbxNewCheckBox_1_1_1 = new JCheckBox("Reproductive Services");
+		chckbxNewCheckBox_1_1_1.setBackground(new Color(255, 239, 213));
+		chckbxNewCheckBox_1_1_1.setBounds(6, 23, 162, 23);
+		panel_1_1_1_1.add(chckbxNewCheckBox_1_1_1);
+		
+		JCheckBox chckbxPreventiveCareadvice_1_1_1 = new JCheckBox("Breeding Services");
+		chckbxPreventiveCareadvice_1_1_1.setBackground(new Color(255, 239, 213));
+		chckbxPreventiveCareadvice_1_1_1.setBounds(6, 49, 187, 23);
+		panel_1_1_1_1.add(chckbxPreventiveCareadvice_1_1_1);
+		
+		JPanel panel_1_1_1_1_1 = new JPanel();
+		panel_1_1_1_1_1.setLayout(null);
+		panel_1_1_1_1_1.setForeground(new Color(255, 235, 205));
+		panel_1_1_1_1_1.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Oncology", TitledBorder.LEFT, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		panel_1_1_1_1_1.setBackground(new Color(255, 239, 213));
+		panel_1_1_1_1_1.setBounds(341, 232, 199, 115);
+		frame.getContentPane().add(panel_1_1_1_1_1);
+		
+		JCheckBox chckbxNewCheckBox_1_1_1_1 = new JCheckBox("Cancer Treatment/ Chemotheraphy");
+		chckbxNewCheckBox_1_1_1_1.setBackground(new Color(255, 239, 213));
+		chckbxNewCheckBox_1_1_1_1.setBounds(6, 23, 162, 23);
+		panel_1_1_1_1_1.add(chckbxNewCheckBox_1_1_1_1);
 		
 		JButton btnNewButton = new JButton("BACK");
 		btnNewButton.setFont(new Font("Verdana", Font.PLAIN, 13));
-		btnNewButton.setBounds(21, 366, 89, 23);
+		btnNewButton.setBounds(10, 363, 89, 23);
 		frame.getContentPane().add(btnNewButton);
 		
-		JButton btnOtherSevices = new JButton("Other Sevices");
-		btnOtherSevices.setFont(new Font("Verdana", Font.PLAIN, 13));
-		btnOtherSevices.setBounds(562, 368, 125, 23);
-		frame.getContentPane().add(btnOtherSevices);
+		JButton btnSaveAppointment = new JButton("SAVE APPOINTMENT");
+		btnSaveAppointment.setFont(new Font("Verdana", Font.PLAIN, 13));
+		btnSaveAppointment.setBounds(520, 365, 167, 23);
+		frame.getContentPane().add(btnSaveAppointment);
+		frame.setBounds(100, 100, 713, 436);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
+
 }
