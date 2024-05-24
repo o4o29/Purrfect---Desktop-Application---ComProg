@@ -3,6 +3,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import java.awt.Color;
 import javax.swing.JTextArea;
+import javax.swing.SwingUtilities;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTable;
@@ -14,28 +15,7 @@ public class monthlyReports {
 	private JTable table;
 	private JTable table_1;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					monthlyReports window = new monthlyReports();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
-	/**
-	 * Create the application.
-	 */
-	public monthlyReports() {
-		initialize();
-	}
 
 	/**
 	 * Initialize the contents of the frame.
@@ -66,10 +46,28 @@ public class monthlyReports {
 		table_1.setBounds(27, 69, 622, 263);
 		frame.getContentPane().add(table_1);
 		
-		JButton btnBackToDashboard_1 = new JButton("BACK TO DASHBOARD");
-		btnBackToDashboard_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		btnBackToDashboard_1.setBounds(227, 351, 202, 23);
-		frame.getContentPane().add(btnBackToDashboard_1);
+		JButton btnBack = new JButton("BACK TO DASHBOARD");
+		btnBack.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		btnBack.setBounds(227, 351, 202, 23);
+		frame.getContentPane().add(btnBack);
+		
+		
+		// BUTTON LISTENERS
+		btnBack.addActionListener(e -> {
+        	frame.dispose();
+        	new Dashboard();
+        });
 	}
 
+	
+	public static void main(String[] args) {
+		SwingUtilities.invokeLater(() -> {
+    		new monthlyReports();
+        });
+	}
+
+	public monthlyReports() {
+		initialize();
+		frame.setVisible(true);
+	}
 }
