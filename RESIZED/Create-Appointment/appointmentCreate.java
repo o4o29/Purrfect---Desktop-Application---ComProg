@@ -136,76 +136,76 @@ public class appointmentCreate{
 		textArea_1_1.setBounds(0, 298, 884, 46);
 		frame.getContentPane().add(textArea_1_1);
 		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "CheckUps", TitledBorder.LEFT, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		panel_1.setLayout(null);
-		panel_1.setForeground(new Color(255, 235, 205));
-		panel_1.setBackground(new Color(255, 239, 213));
-		panel_1.setBounds(23, 387, 322, 94);
-		frame.getContentPane().add(panel_1);
+		JPanel checkups_Panel = new JPanel();
+		checkups_Panel.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "CheckUps", TitledBorder.LEFT, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		checkups_Panel.setLayout(null);
+		checkups_Panel.setForeground(new Color(255, 235, 205));
+		checkups_Panel.setBackground(new Color(255, 239, 213));
+		checkups_Panel.setBounds(23, 387, 322, 94);
+		frame.getContentPane().add(checkups_Panel);
 		
 		JCheckBox wellnessExam_Chk = new JCheckBox("Wellness Exams (Monitor)");
 		wellnessExam_Chk.setFont(new Font("Verdana", Font.PLAIN, 13));
 		wellnessExam_Chk.setBackground(new Color(255, 239, 213));
 		wellnessExam_Chk.setBounds(19, 22, 218, 23);
-		panel_1.add(wellnessExam_Chk);
+		checkups_Panel.add(wellnessExam_Chk);
 		
 		JCheckBox preventCare_Chk = new JCheckBox("Preventive Care \r\n(Advice and Treatment)\r\n");
 		preventCare_Chk.setFont(new Font("Verdana", Font.PLAIN, 13));
 		preventCare_Chk.setBackground(new Color(255, 239, 213));
 		preventCare_Chk.setBounds(19, 49, 295, 23);
-		panel_1.add(preventCare_Chk);
+		checkups_Panel.add(preventCare_Chk);
 		
-		JPanel panel_1_1 = new JPanel();
-		panel_1_1.setBorder(new TitledBorder(null, "Diagnostic", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		panel_1_1.setLayout(null);
-		panel_1_1.setForeground(new Color(255, 235, 205));
-		panel_1_1.setBackground(new Color(255, 239, 213));
-		panel_1_1.setBounds(355, 373, 230, 120);
-		frame.getContentPane().add(panel_1_1);
+		JPanel diagnostic_Panel = new JPanel();
+		diagnostic_Panel.setBorder(new TitledBorder(null, "Diagnostic", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		diagnostic_Panel.setLayout(null);
+		diagnostic_Panel.setForeground(new Color(255, 235, 205));
+		diagnostic_Panel.setBackground(new Color(255, 239, 213));
+		diagnostic_Panel.setBounds(355, 373, 230, 120);
+		frame.getContentPane().add(diagnostic_Panel);
 		
 		JCheckBox labTesting_Chk = new JCheckBox("Laboratory Testing");
 		labTesting_Chk.setFont(new Font("Verdana", Font.PLAIN, 13));
 		labTesting_Chk.setBackground(new Color(255, 239, 213));
 		labTesting_Chk.setBounds(18, 22, 206, 23);
-		panel_1_1.add(labTesting_Chk);
+		diagnostic_Panel.add(labTesting_Chk);
 		
 		JCheckBox imagingServ_Chk = new JCheckBox("Imaging Services");
 		imagingServ_Chk.setFont(new Font("Verdana", Font.PLAIN, 13));
 		imagingServ_Chk.setBackground(new Color(255, 239, 213));
 		imagingServ_Chk.setBounds(18, 48, 206, 23);
-		panel_1_1.add(imagingServ_Chk);
+		diagnostic_Panel.add(imagingServ_Chk);
 		
 		JCheckBox ecgEkg_Chk = new JCheckBox("ECG and EKG");
 		ecgEkg_Chk.setFont(new Font("Verdana", Font.PLAIN, 13));
 		ecgEkg_Chk.setBackground(new Color(255, 239, 213));
 		ecgEkg_Chk.setBounds(18, 74, 206, 23);
-		panel_1_1.add(ecgEkg_Chk);
+		diagnostic_Panel.add(ecgEkg_Chk);
 		
-		JPanel panel_1_1_1 = new JPanel();
-		panel_1_1_1.setLayout(null);
-		panel_1_1_1.setForeground(new Color(255, 235, 205));
-		panel_1_1_1.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Surgery", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		panel_1_1_1.setBackground(new Color(255, 239, 213));
-		panel_1_1_1.setBounds(611, 373, 230, 120);
-		frame.getContentPane().add(panel_1_1_1);
+		JPanel surgery_Panel = new JPanel();
+		surgery_Panel.setLayout(null);
+		surgery_Panel.setForeground(new Color(255, 235, 205));
+		surgery_Panel.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Surgery", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		surgery_Panel.setBackground(new Color(255, 239, 213));
+		surgery_Panel.setBounds(611, 373, 230, 120);
+		frame.getContentPane().add(surgery_Panel);
 		
 		JCheckBox spayNeut_Chk = new JCheckBox("Spaying and Neuturing");
 		spayNeut_Chk.setFont(new Font("Verdana", Font.PLAIN, 13));
 		spayNeut_Chk.setBackground(new Color(255, 239, 213));
 		spayNeut_Chk.setBounds(16, 22, 188, 23);
-		panel_1_1_1.add(spayNeut_Chk);
+		surgery_Panel.add(spayNeut_Chk);
 		
 		JCheckBox tumorRemoval_Chk = new JCheckBox("Tumor Removal");
 		tumorRemoval_Chk.setFont(new Font("Verdana", Font.PLAIN, 13));
 		tumorRemoval_Chk.setBackground(new Color(255, 239, 213));
 		tumorRemoval_Chk.setBounds(16, 48, 188, 23);
-		panel_1_1_1.add(tumorRemoval_Chk);
+		surgery_Panel.add(tumorRemoval_Chk);
 		
 		JCheckBox woundRepair_Chk = new JCheckBox("Wound Repair");
 		woundRepair_Chk.setFont(new Font("Verdana", Font.PLAIN, 13));
 		woundRepair_Chk.setBounds(16, 76, 190, 23);
-		panel_1_1_1.add(woundRepair_Chk);
+		surgery_Panel.add(woundRepair_Chk);
 		woundRepair_Chk.setBackground(new Color(255, 239, 213));
 		
 		JLabel lblCompleteAppointment_1 = new JLabel("1\r\n");
