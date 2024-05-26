@@ -10,7 +10,6 @@ import java.awt.event.ActionListener;
 import java.sql.SQLException;
 
 public class createClientInformation extends JFrame {
-
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField firstname_field;
@@ -23,10 +22,11 @@ public class createClientInformation extends JFrame {
 	private void initialize() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
-		setSize(713, 436); 
+		setSize(900, 600); 
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 228, 225));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setLocationRelativeTo(null);
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -34,85 +34,79 @@ public class createClientInformation extends JFrame {
 		JLabel lblNewLabel = new JLabel("CREATE CLIENT");
 		lblNewLabel.setForeground(Color.WHITE);
 		lblNewLabel.setFont(new Font("Century Gothic", Font.BOLD, 55));
-		lblNewLabel.setBounds(146, 0, 423, 75);
+		lblNewLabel.setBounds(250, 0, 423, 75);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("INFORMATION\r\n");
 		lblNewLabel_1.setFont(new Font("Century Gothic", Font.BOLD, 35));
 		lblNewLabel_1.setForeground(Color.WHITE);
-		lblNewLabel_1.setBounds(216, 54, 304, 61);
+		lblNewLabel_1.setBounds(330, 54, 253, 61);
 		contentPane.add(lblNewLabel_1);
 		
 		JTextArea textArea = new JTextArea();
 		textArea.setBackground(new Color(255, 182, 193));
-		textArea.setBounds(0, 0, 697, 115);
+		textArea.setBounds(0, 0, 884, 115);
 		contentPane.add(textArea);
-		
-		JButton btnBack = new JButton("BACK");
-		btnBack.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		btnBack.setBackground(new Color(255, 240, 245));
-		btnBack.setBounds(10, 361, 101, 25);
-		contentPane.add(btnBack);
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(255, 182, 193));
-		panel.setBounds(132, 137, 423, 233);
+		panel.setBounds(150, 148, 610, 293);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
 		JLabel lblFirstName = new JLabel("First Name:");
-		lblFirstName.setBounds(38, 24, 76, 19);
+		lblFirstName.setBounds(89, 24, 76, 19);
 		panel.add(lblFirstName);
 		lblFirstName.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		
 		firstname_field = new JTextField();
-		firstname_field.setBounds(144, 25, 248, 20);
+		firstname_field.setBounds(202, 25, 248, 20);
 		panel.add(firstname_field);
 		firstname_field.setColumns(10);
 		
 		JLabel lblLastName = new JLabel("Last Name:");
-		lblLastName.setBounds(38, 54, 96, 14);
+		lblLastName.setBounds(89, 54, 96, 14);
 		panel.add(lblLastName);
 		lblLastName.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		
 		lastname_field = new JTextField();
 		lastname_field.setColumns(10);
-		lastname_field.setBounds(144, 53, 248, 20);
+		lastname_field.setBounds(202, 56, 248, 20);
 		panel.add(lastname_field);
 		
 		JLabel lblAddress = new JLabel("Address:");
 		lblAddress.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblAddress.setBounds(38, 79, 106, 14);
+		lblAddress.setBounds(89, 90, 106, 14);
 		panel.add(lblAddress);
 		
 		address_field = new JTextArea();	
-		address_field.setBounds(144, 79, 248, 51);
+		address_field.setBounds(202, 87, 248, 51);
 		panel.add(address_field);
 		
 		JLabel lblContact = new JLabel("Contact No.:");
 		lblContact.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblContact.setBounds(38, 136, 106, 14);
+		lblContact.setBounds(89, 150, 106, 14);
 		panel.add(lblContact);
 		
 		contact_field = new JTextField();
 		contact_field.setColumns(10);
-		contact_field.setBounds(144, 135, 248, 20);
+		contact_field.setBounds(202, 149, 248, 20);
 		panel.add(contact_field);
 		
 		JLabel lblEmailAddress = new JLabel("Email Address:");
 		lblEmailAddress.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblEmailAddress.setBounds(38, 161, 106, 14);
+		lblEmailAddress.setBounds(89, 175, 106, 14);
 		panel.add(lblEmailAddress);
 		
 		email_field = new JTextField();
 		email_field.setColumns(10);
-		email_field.setBounds(144, 160, 248, 20);
+		email_field.setBounds(202, 180, 248, 20);
 		panel.add(email_field);
 		
 		JButton btnCreateClient = new JButton("CREATE CLIENT\r\n");
 		btnCreateClient.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		btnCreateClient.setBackground(new Color(255, 240, 245));
-		btnCreateClient.setBounds(144, 197, 150, 25);
+		btnCreateClient.setBounds(236, 239, 150, 25);
 		panel.add(btnCreateClient);
 		
 		
