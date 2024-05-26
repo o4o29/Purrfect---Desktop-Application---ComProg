@@ -152,7 +152,7 @@ public class Treatment {
 		lblNewLabel_1_2_1_1_2.setBounds(10, 24, 156, 14);
 		diagnosisPanel.add(lblNewLabel_1_2_1_1_2);
 		
-		JTextArea diagnosis__Area = new JTextArea();
+		JTextArea diagnosis_Area = new JTextArea();
 		diagnosis__Area.setLineWrap(true);
 		diagnosis__Area.setBounds(10, 44, 156, 91);
 		diagnosisPanel.add(diagnosis__Area);
