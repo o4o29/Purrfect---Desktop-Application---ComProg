@@ -16,15 +16,15 @@ import javax.swing.border.EtchedBorder;
 public class Treatment {
 
 	private JFrame frame;
-	private JTextField textField;
+	private JTextField appointmentID_Field;
 	private JTextField vaxName_Field;
-	private JTextField textField_2;
-	private JTextField textField_11;
-	private JTextField textField_12;
+	private JTextField date_Field;
+	private JTextField petID_Field;
+	private JTextField petName_Field;
 	private JTextField temp_Field;
 	private JTextField heartRate_Field;
 	private JTextField respRate_Field;
-	private JTextField textField_5;
+	private JTextField services_Field;
 	private JTextField against_Field;
 	private JTextField others_Field;
 
@@ -52,10 +52,10 @@ public class Treatment {
 		lblNewLabel.setBounds(21, 11, 129, 14);
 		mainPanel.add(lblNewLabel);
 		
-		textField = new JTextField();
-		textField.setBounds(127, 9, 179, 20);
-		mainPanel.add(textField);
-		textField.setColumns(10);
+		appointmentID_Field = new JTextField();
+		appointmentID_Field.setBounds(127, 9, 179, 20);
+		mainPanel.add(appointmentID_Field);
+		appointmentID_Field.setColumns(10);
 		
 		JLabel lblDate = new JLabel("Date:");
 		lblDate.setFont(new Font("Tahoma", Font.PLAIN, 13));
@@ -67,35 +67,35 @@ public class Treatment {
 		lblNewLabel_1_2.setBounds(21, 63, 129, 14);
 		mainPanel.add(lblNewLabel_1_2);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(127, 36, 179, 20);
-		mainPanel.add(textField_2);
+		date_Field = new JTextField();
+		date_Field.setColumns(10);
+		date_Field.setBounds(127, 36, 179, 20);
+		mainPanel.add(date_Field);
 		
 		JLabel lblNewLabel_1_2_1 = new JLabel("Pet Name:");
 		lblNewLabel_1_2_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		lblNewLabel_1_2_1.setBounds(21, 88, 129, 14);
 		mainPanel.add(lblNewLabel_1_2_1);
 		
-		textField_11 = new JTextField();
-		textField_11.setColumns(10);
-		textField_11.setBounds(127, 63, 179, 20);
-		mainPanel.add(textField_11);
+		petID_Field = new JTextField();
+		petID_Field.setColumns(10);
+		petID_Field.setBounds(127, 63, 179, 20);
+		mainPanel.add(petID_Field);
 		
-		textField_12 = new JTextField();
-		textField_12.setColumns(10);
-		textField_12.setBounds(127, 88, 179, 20);
-		mainPanel.add(textField_12);
+		petName_Field = new JTextField();
+		petName_Field.setColumns(10);
+		petName_Field.setBounds(127, 88, 179, 20);
+		mainPanel.add(petName_Field);
 		
 		JLabel lblNewLabel_1_2_1_2 = new JLabel("Services:");
 		lblNewLabel_1_2_1_2.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		lblNewLabel_1_2_1_2.setBounds(21, 113, 129, 14);
 		mainPanel.add(lblNewLabel_1_2_1_2);
 		
-		textField_5 = new JTextField();
-		textField_5.setColumns(10);
-		textField_5.setBounds(127, 113, 179, 20);
-		mainPanel.add(textField_5);
+		services_Field = new JTextField();
+		services_Field.setColumns(10);
+		services_Field.setBounds(127, 113, 179, 20);
+		mainPanel.add(services_Field);
 		
 		JPanel dewormingPanel = new JPanel();
 		dewormingPanel.setLayout(null);
