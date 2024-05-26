@@ -15,11 +15,11 @@ import javax.swing.JButton;
 public class Prescription {
 
 	private JFrame frame;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
+	private JTextField petID_Field;
+	private JTextField dosage_Field;
+	private JTextField duration_Field;
+	private JTextField time_Field;
+	private JTextField drugName_Field;
 
 	
 
@@ -83,39 +83,39 @@ public class Prescription {
 		lblAdditionalInstructions.setBounds(24, 244, 203, 14);
 		panel.add(lblAdditionalInstructions);
 		
-		textField = new JTextField();
-		textField.setBounds(126, 20, 217, 30);
-		panel.add(textField);
-		textField.setColumns(10);
+		petID_Field = new JTextField();
+		petID_Field.setBounds(126, 20, 217, 30);
+		panel.add(petID_Field);
+		petID_Field.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(126, 105, 217, 30);
-		panel.add(textField_1);
+		dosage_Field = new JTextField();
+		dosage_Field.setColumns(10);
+		dosage_Field.setBounds(126, 105, 217, 30);
+		panel.add(dosage_Field);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(126, 146, 217, 30);
-		panel.add(textField_2);
+		duration_Field = new JTextField();
+		duration_Field.setColumns(10);
+		duration_Field.setBounds(126, 146, 217, 30);
+		panel.add(duration_Field);
 		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(126, 190, 217, 30);
-		panel.add(textField_3);
+		time_Field = new JTextField();
+		time_Field.setColumns(10);
+		time_Field.setBounds(126, 190, 217, 30);
+		panel.add(time_Field);
 		
-		textField_4 = new JTextField();
-		textField_4.setColumns(10);
-		textField_4.setBounds(126, 61, 217, 30);
-		panel.add(textField_4);
+		drugName_Field = new JTextField();
+		drugName_Field.setColumns(10);
+		drugName_Field.setBounds(126, 61, 217, 30);
+		panel.add(drugName_Field);
 		
-		JTextArea textArea = new JTextArea();
-		textArea.setBounds(24, 269, 319, 60);
-		panel.add(textArea);
+		JTextArea additionalInstruct_Field = new JTextArea();
+		additionalInstruct_Field.setBounds(24, 269, 319, 60);
+		panel.add(additionalInstruct_Field);
 		
-		JButton btnSaveAppointment_1_1 = new JButton("Print & Save Prescription");
-		btnSaveAppointment_1_1.setFont(new Font("Verdana", Font.PLAIN, 15));
-		btnSaveAppointment_1_1.setBounds(51, 340, 217, 32);
-		panel.add(btnSaveAppointment_1_1);
+		JButton printSave_Btn = new JButton("Print & Save Prescription");
+		printSave_Btn.setFont(new Font("Verdana", Font.PLAIN, 15));
+		printSave_Btn.setBounds(51, 340, 217, 32);
+		panel.add(printSave_Btn);
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Prescription", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(250, 128, 114)));
