@@ -131,12 +131,7 @@ public class createClientInformation extends JFrame {
                 JOptionPane.showMessageDialog(this, "Error creating client: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             }
         });
-		
-		btnBack.addActionListener(e -> {
-        	this.dispose();
-        	new searchClientAndPet();
-        });
-	}
+		}
 	
 	
 	public static void main(String[] args) {
