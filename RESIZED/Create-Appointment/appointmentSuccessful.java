@@ -17,13 +17,13 @@ import javax.swing.JButton;
 public class appointmentSuccessful {
 
 	JFrame frame;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
-	private JTextField textField_6;
+	private JTextField appointmentID_Field;
+	private JTextField clientID_Field;
+	private JTextField petID_Field;
+	private JTextField time_Field;
+	private JTextField totalPayment_Field;
+	private JTextField date_Field;
+	private JTextField services_Field;
 
 	/**
 	 * Launch the application.
@@ -113,44 +113,44 @@ public class appointmentSuccessful {
 		lblTotalPayment.setBounds(37, 298, 164, 26);
 		panel.add(lblTotalPayment);
 		
-		textField = new JTextField();
-		textField.setBounds(210, 15, 268, 30);
-		panel.add(textField);
-		textField.setColumns(10);
+		appointmentID_Field = new JTextField();
+		appointmentID_Field.setBounds(210, 15, 268, 30);
+		panel.add(appointmentID_Field);
+		appointmentID_Field.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(210, 60, 268, 30);
-		panel.add(textField_1);
+		clientID_Field = new JTextField();
+		clientID_Field.setColumns(10);
+		clientID_Field.setBounds(210, 60, 268, 30);
+		panel.add(clientID_Field);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(210, 105, 268, 30);
-		panel.add(textField_2);
+		petID_Field = new JTextField();
+		petID_Field.setColumns(10);
+		petID_Field.setBounds(210, 105, 268, 30);
+		panel.add(petID_Field);
 		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(210, 255, 268, 30);
-		panel.add(textField_3);
+		time_Field = new JTextField();
+		time_Field.setColumns(10);
+		time_Field.setBounds(210, 255, 268, 30);
+		panel.add(time_Field);
 		
-		textField_4 = new JTextField();
-		textField_4.setColumns(10);
-		textField_4.setBounds(211, 300, 267, 30);
-		panel.add(textField_4);
+		totalPayment_Field = new JTextField();
+		totalPayment_Field.setColumns(10);
+		totalPayment_Field.setBounds(211, 300, 267, 30);
+		panel.add(totalPayment_Field);
 		
-		textField_5 = new JTextField();
-		textField_5.setColumns(10);
-		textField_5.setBounds(210, 210, 268, 30);
-		panel.add(textField_5);
+		date_Field = new JTextField();
+		date_Field.setColumns(10);
+		date_Field.setBounds(210, 210, 268, 30);
+		panel.add(date_Field);
 		
-		textField_6 = new JTextField();
-		textField_6.setBounds(210, 150, 268, 44);
-		panel.add(textField_6);
-		textField_6.setColumns(10);
+		services_Field = new JTextField();
+		services_Field.setBounds(210, 150, 268, 44);
+		panel.add(services_Field);
+		services_Field.setColumns(10);
 		
-		JButton btnPrint = new JButton("PRINT");
-		btnPrint.setFont(new Font("Verdana", Font.PLAIN, 16));
-		btnPrint.setBounds(369, 356, 121, 26);
-		panel.add(btnPrint);
+		JButton print_Btn = new JButton("PRINT");
+		print_Btn.setFont(new Font("Verdana", Font.PLAIN, 16));
+		print_Btn.setBounds(369, 356, 121, 26);
+		panel.add(print_Btn);
 	}
 }
