@@ -156,11 +156,7 @@ public class createPetInformation extends JFrame {
 		btnNewButton_2_1_1_1.setBackground(new Color(255, 240, 245));
 		
 		
-		// BUTTONS
-		backBtn.addActionListener(e -> {
-			this.dispose();
-			new searchClientAndPet();
-		});
+
 	}
 	
 	
