@@ -89,23 +89,23 @@ public class appointmentOtherServices {
 		panel_1.setBounds(57, 208, 210, 130);
 		frame.getContentPane().add(panel_1);
 		
-		JCheckBox chckbxTeethCleaning = new JCheckBox("Teeth Cleaning");
-		chckbxTeethCleaning.setFont(new Font("Verdana", Font.PLAIN, 13));
-		chckbxTeethCleaning.setBackground(new Color(255, 239, 213));
-		chckbxTeethCleaning.setBounds(6, 23, 162, 23);
-		panel_1.add(chckbxTeethCleaning);
+		JCheckBox teethClean_Chk = new JCheckBox("Teeth Cleaning");
+		teethClean_Chk.setFont(new Font("Verdana", Font.PLAIN, 13));
+		teethClean_Chk.setBackground(new Color(255, 239, 213));
+		teethClean_Chk.setBounds(6, 23, 162, 23);
+		panel_1.add(teethClean_Chk);
 		
-		JCheckBox chckbxTeethRemoval = new JCheckBox("Teeth Removal");
-		chckbxTeethRemoval.setFont(new Font("Verdana", Font.PLAIN, 13));
-		chckbxTeethRemoval.setBackground(new Color(255, 239, 213));
-		chckbxTeethRemoval.setBounds(6, 49, 187, 23);
-		panel_1.add(chckbxTeethRemoval);
+		JCheckBox teethRemove_Chk = new JCheckBox("Teeth Removal");
+		teethRemove_Chk.setFont(new Font("Verdana", Font.PLAIN, 13));
+		teethRemove_Chk.setBackground(new Color(255, 239, 213));
+		teethRemove_Chk.setBounds(6, 49, 187, 23);
+		panel_1.add(teethRemove_Chk);
 		
-		JCheckBox chckbxOralHealthExam = new JCheckBox("Oral Health Exam");
-		chckbxOralHealthExam.setFont(new Font("Verdana", Font.PLAIN, 13));
-		chckbxOralHealthExam.setBackground(new Color(255, 239, 213));
-		chckbxOralHealthExam.setBounds(6, 75, 187, 23);
-		panel_1.add(chckbxOralHealthExam);
+		JCheckBox oralExam_Chk = new JCheckBox("Oral Health Exam");
+		oralExam_Chk.setFont(new Font("Verdana", Font.PLAIN, 13));
+		oralExam_Chk.setBackground(new Color(255, 239, 213));
+		oralExam_Chk.setBounds(6, 75, 187, 23);
+		panel_1.add(oralExam_Chk);
 		
 		JPanel panel_1_1 = new JPanel();
 		panel_1_1.setLayout(null);
@@ -115,23 +115,23 @@ public class appointmentOtherServices {
 		panel_1_1.setBounds(326, 208, 210, 130);
 		frame.getContentPane().add(panel_1_1);
 		
-		JCheckBox chckbxMedicationManagement = new JCheckBox("Medication Management");
-		chckbxMedicationManagement.setFont(new Font("Verdana", Font.PLAIN, 13));
-		chckbxMedicationManagement.setBackground(new Color(255, 239, 213));
-		chckbxMedicationManagement.setBounds(6, 23, 162, 23);
-		panel_1_1.add(chckbxMedicationManagement);
+		JCheckBox medManage_Chk = new JCheckBox("Medication Management");
+		medManage_Chk.setFont(new Font("Verdana", Font.PLAIN, 13));
+		medManage_Chk.setBackground(new Color(255, 239, 213));
+		medManage_Chk.setBounds(6, 23, 198, 23);
+		panel_1_1.add(medManage_Chk);
 		
-		JCheckBox chckbxGastrointestinalDisorders = new JCheckBox("Gastrointestinal Disorders");
-		chckbxGastrointestinalDisorders.setFont(new Font("Verdana", Font.PLAIN, 13));
-		chckbxGastrointestinalDisorders.setBackground(new Color(255, 239, 213));
-		chckbxGastrointestinalDisorders.setBounds(6, 49, 198, 23);
-		panel_1_1.add(chckbxGastrointestinalDisorders);
+		JCheckBox gastroDisorder_Chk = new JCheckBox("Gastrointestinal Disorders");
+		gastroDisorder_Chk.setFont(new Font("Verdana", Font.PLAIN, 13));
+		gastroDisorder_Chk.setBackground(new Color(255, 239, 213));
+		gastroDisorder_Chk.setBounds(6, 49, 198, 23);
+		panel_1_1.add(gastroDisorder_Chk);
 		
-		JCheckBox chckbxEndocrineDisorder = new JCheckBox("Endocrine Disorder");
-		chckbxEndocrineDisorder.setFont(new Font("Verdana", Font.PLAIN, 13));
-		chckbxEndocrineDisorder.setBackground(new Color(255, 239, 213));
-		chckbxEndocrineDisorder.setBounds(6, 73, 187, 23);
-		panel_1_1.add(chckbxEndocrineDisorder);
+		JCheckBox endocrineDisorder_Chk = new JCheckBox("Endocrine Disorder");
+		endocrineDisorder_Chk.setFont(new Font("Verdana", Font.PLAIN, 13));
+		endocrineDisorder_Chk.setBackground(new Color(255, 239, 213));
+		endocrineDisorder_Chk.setBounds(6, 73, 187, 23);
+		panel_1_1.add(endocrineDisorder_Chk);
 		
 		JPanel panel_1_1_1 = new JPanel();
 		panel_1_1_1.setLayout(null);
@@ -141,17 +141,17 @@ public class appointmentOtherServices {
 		panel_1_1_1.setBounds(595, 208, 227, 130);
 		frame.getContentPane().add(panel_1_1_1);
 		
-		JCheckBox chckbxNewCheckBox_1_1 = new JCheckBox("Skin Treatments");
-		chckbxNewCheckBox_1_1.setFont(new Font("Verdana", Font.PLAIN, 13));
-		chckbxNewCheckBox_1_1.setBackground(new Color(255, 239, 213));
-		chckbxNewCheckBox_1_1.setBounds(6, 23, 162, 23);
-		panel_1_1_1.add(chckbxNewCheckBox_1_1);
+		JCheckBox skinTreat_Chk = new JCheckBox("Skin Treatments");
+		skinTreat_Chk.setFont(new Font("Verdana", Font.PLAIN, 13));
+		skinTreat_Chk.setBackground(new Color(255, 239, 213));
+		skinTreat_Chk.setBounds(6, 23, 162, 23);
+		panel_1_1_1.add(skinTreat_Chk);
 		
-		JCheckBox chckbxPreventiveCareadvice_1_1 = new JCheckBox("Allergy Testing/ Treatments");
-		chckbxPreventiveCareadvice_1_1.setFont(new Font("Verdana", Font.PLAIN, 13));
-		chckbxPreventiveCareadvice_1_1.setBackground(new Color(255, 239, 213));
-		chckbxPreventiveCareadvice_1_1.setBounds(6, 49, 215, 23);
-		panel_1_1_1.add(chckbxPreventiveCareadvice_1_1);
+		JCheckBox allergyTreat_Chk = new JCheckBox("Allergy Testing/ Treatments");
+		allergyTreat_Chk.setFont(new Font("Verdana", Font.PLAIN, 13));
+		allergyTreat_Chk.setBackground(new Color(255, 239, 213));
+		allergyTreat_Chk.setBounds(6, 49, 215, 23);
+		panel_1_1_1.add(allergyTreat_Chk);
 		
 		JPanel panel_1_1_1_1 = new JPanel();
 		panel_1_1_1_1.setLayout(null);
@@ -161,17 +161,17 @@ public class appointmentOtherServices {
 		panel_1_1_1_1.setBounds(68, 378, 210, 130);
 		frame.getContentPane().add(panel_1_1_1_1);
 		
-		JCheckBox chckbxNewCheckBox_1_1_1 = new JCheckBox("Reproductive Services");
-		chckbxNewCheckBox_1_1_1.setFont(new Font("Verdana", Font.PLAIN, 13));
-		chckbxNewCheckBox_1_1_1.setBackground(new Color(255, 239, 213));
-		chckbxNewCheckBox_1_1_1.setBounds(6, 38, 187, 23);
-		panel_1_1_1_1.add(chckbxNewCheckBox_1_1_1);
+		JCheckBox reproSer_Chk = new JCheckBox("Reproductive Services");
+		reproSer_Chk.setFont(new Font("Verdana", Font.PLAIN, 13));
+		reproSer_Chk.setBackground(new Color(255, 239, 213));
+		reproSer_Chk.setBounds(6, 38, 187, 23);
+		panel_1_1_1_1.add(reproSer_Chk);
 		
-		JCheckBox chckbxPreventiveCareadvice_1_1_1 = new JCheckBox("Breeding Services");
-		chckbxPreventiveCareadvice_1_1_1.setFont(new Font("Verdana", Font.PLAIN, 13));
-		chckbxPreventiveCareadvice_1_1_1.setBackground(new Color(255, 239, 213));
-		chckbxPreventiveCareadvice_1_1_1.setBounds(6, 66, 187, 23);
-		panel_1_1_1_1.add(chckbxPreventiveCareadvice_1_1_1);
+		JCheckBox breedSer_Chk = new JCheckBox("Breeding Services");
+		breedSer_Chk.setFont(new Font("Verdana", Font.PLAIN, 13));
+		breedSer_Chk.setBackground(new Color(255, 239, 213));
+		breedSer_Chk.setBounds(6, 66, 187, 23);
+		panel_1_1_1_1.add(breedSer_Chk);
 		
 		JPanel panel_1_1_1_1_1 = new JPanel();
 		panel_1_1_1_1_1.setLayout(null);
@@ -181,20 +181,20 @@ public class appointmentOtherServices {
 		panel_1_1_1_1_1.setBounds(326, 389, 279, 94);
 		frame.getContentPane().add(panel_1_1_1_1_1);
 		
-		JCheckBox chckbxNewCheckBox_1_1_1_1 = new JCheckBox("Cancer Treatment/ Chemotheraphy");
-		chckbxNewCheckBox_1_1_1_1.setFont(new Font("Verdana", Font.PLAIN, 13));
-		chckbxNewCheckBox_1_1_1_1.setBackground(new Color(255, 239, 213));
-		chckbxNewCheckBox_1_1_1_1.setBounds(6, 34, 267, 23);
-		panel_1_1_1_1_1.add(chckbxNewCheckBox_1_1_1_1);
+		JCheckBox cancerTreat_Chk = new JCheckBox("Cancer Treatment/ Chemotheraphy");
+		cancerTreat_Chk.setFont(new Font("Verdana", Font.PLAIN, 13));
+		cancerTreat_Chk.setBackground(new Color(255, 239, 213));
+		cancerTreat_Chk.setBounds(6, 34, 267, 23);
+		panel_1_1_1_1_1.add(cancerTreat_Chk);
 		
-		JButton btnSaveAppointment = new JButton("SAVE APPOINTMENT");
-		btnSaveAppointment.addActionListener(new ActionListener() {
+		JButton saveAppointment_Btn = new JButton("SAVE APPOINTMENT");
+		saveAppointment_Btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnSaveAppointment.setFont(new Font("Verdana", Font.PLAIN, 16));
-		btnSaveAppointment.setBounds(647, 422, 202, 40);
-		frame.getContentPane().add(btnSaveAppointment);
+		saveAppointment_Btn.setFont(new Font("Verdana", Font.PLAIN, 16));
+		saveAppointment_Btn.setBounds(647, 422, 202, 40);
+		frame.getContentPane().add(saveAppointment_Btn);
 	}
 
 }
