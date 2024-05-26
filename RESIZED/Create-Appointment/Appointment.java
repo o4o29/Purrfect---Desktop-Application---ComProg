@@ -1,4 +1,3 @@
-
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -16,7 +15,7 @@ import java.awt.event.ActionEvent;
 public class Appointment {
 
 	private JFrame frame;
-	private JTextField petID_Field;
+	private JTextField clientID_Field;
 
 
 
@@ -41,24 +40,24 @@ public class Appointment {
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Enter Pet ID:");
+		JLabel lblNewLabel = new JLabel("Enter Client ID:");
 		lblNewLabel.setFont(new Font("Verdana", Font.PLAIN, 20));
 		lblNewLabel.setBounds(35, 36, 166, 19);
 		panel.add(lblNewLabel);
 		
-		petID_Field = new JTextField();
-		petID_Field.setBounds(216, 32, 240, 35);
-		panel.add(petID_Field);
-		petID_Field.setColumns(10);
+		clientID_Field = new JTextField();
+		clientID_Field.setBounds(216, 32, 240, 35);
+		panel.add(clientID_Field);
+		clientID_Field.setColumns(10);
 		
-		JButton btnNewButton_1 = new JButton("Create Appointment");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		JButton createAppoint_Btn = new JButton("Create Appointment");
+		createAppoint_Btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton_1.setFont(new Font("Verdana", Font.PLAIN, 16));
-		btnNewButton_1.setBounds(152, 83, 202, 40);
-		panel.add(btnNewButton_1);
+		createAppoint_Btn.setFont(new Font("Verdana", Font.PLAIN, 16));
+		createAppoint_Btn.setBounds(152, 83, 202, 40);
+		panel.add(createAppoint_Btn);
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBounds(186, 376, 508, 149);
@@ -71,10 +70,10 @@ public class Appointment {
 		lblNewClientRegister.setBounds(25, 37, 473, 19);
 		panel_1.add(lblNewClientRegister);
 		
-		JButton btnNewButton_1_1 = new JButton("Register Client");
-		btnNewButton_1_1.setFont(new Font("Verdana", Font.PLAIN, 16));
-		btnNewButton_1_1.setBounds(154, 78, 202, 40);
-		panel_1.add(btnNewButton_1_1);
+		JButton registerClient_Btn = new JButton("Register Client");
+		registerClient_Btn.setFont(new Font("Verdana", Font.PLAIN, 16));
+		registerClient_Btn.setBounds(154, 78, 202, 40);
+		panel_1.add(registerClient_Btn);
 		
 		JLabel lblCreate = new JLabel("CREATE");
 		lblCreate.setBounds(369, 11, 151, 75);
