@@ -57,6 +57,8 @@ public class appointmentCreate{
 		frame.getContentPane().setBackground(new Color(255, 228, 225));
 		frame.setBounds(100, 100, 900, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setResizable(false);
+		frame.setLocationRelativeTo(null);
 		frame.getContentPane().setLayout(null);
 		
 		JLabel lblCompleteAppointment = new JLabel("COMPLETE APPOINTMENT ");
