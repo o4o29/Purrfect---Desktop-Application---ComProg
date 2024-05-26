@@ -16,7 +16,7 @@ import java.awt.event.ActionEvent;
 public class Appointment {
 
 	private JFrame frame;
-	private JTextField textField;
+	private JTextField petID_Field;
 
 
 
@@ -41,15 +41,15 @@ public class Appointment {
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Enter Client ID:");
+		JLabel lblNewLabel = new JLabel("Enter Pet ID:");
 		lblNewLabel.setFont(new Font("Verdana", Font.PLAIN, 20));
 		lblNewLabel.setBounds(35, 36, 166, 19);
 		panel.add(lblNewLabel);
 		
-		textField = new JTextField();
-		textField.setBounds(216, 32, 240, 35);
-		panel.add(textField);
-		textField.setColumns(10);
+		petID_Field = new JTextField();
+		petID_Field.setBounds(216, 32, 240, 35);
+		panel.add(petID_Field);
+		petID_Field.setColumns(10);
 		
 		JButton btnNewButton_1 = new JButton("Create Appointment");
 		btnNewButton_1.addActionListener(new ActionListener() {
