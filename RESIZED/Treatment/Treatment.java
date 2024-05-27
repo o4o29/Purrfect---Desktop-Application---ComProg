@@ -8,6 +8,7 @@ import java.awt.Font;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JRadioButton;
 import javax.swing.border.TitledBorder;
@@ -153,9 +154,9 @@ public class Treatment {
 		diagnosisPanel.add(lblNewLabel_1_2_1_1_2);
 		
 		JTextArea diagnosis_Area = new JTextArea();
-		diagnosis__Area.setLineWrap(true);
-		diagnosis__Area.setBounds(10, 44, 156, 91);
-		diagnosisPanel.add(diagnosis__Area);
+		diagnosis_Area.setLineWrap(true);
+		diagnosis_Area.setBounds(10, 44, 156, 91);
+		diagnosisPanel.add(diagnosis_Area);
 		
 		JPanel vaccinationPanel = new JPanel();
 		vaccinationPanel.setLayout(null);
@@ -164,7 +165,7 @@ public class Treatment {
 		vaccinationPanel.setBounds(221, 11, 176, 178);
 		dewormingPanel.add(vaccinationPanel);
 		
-		JRadioButton yes_Rdo = new JRadioButton("Yes\r\n");
+		JRadioButton yes_Rdo = new JRadioButton("Yes");
 		yes_Rdo.setBounds(17, 18, 89, 23);
 		vaccinationPanel.add(yes_Rdo);
 		yes_Rdo.setFont(new Font("Tahoma", Font.PLAIN, 13));
@@ -175,6 +176,10 @@ public class Treatment {
 		vaccinationPanel.add(no_Rdo);
 		no_Rdo.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		no_Rdo.setBackground(new Color(255, 228, 225));
+		
+		 ButtonGroup vaccinationGroup = new ButtonGroup();
+	     vaccinationGroup.add(yes_Rdo);
+	     vaccinationGroup.add(no_Rdo);
 		
 		JLabel lblNewLabel_1_1_2_1_1_1 = new JLabel("Name:");
 		lblNewLabel_1_1_2_1_1_1.setBounds(17, 74, 43, 14);
@@ -213,7 +218,7 @@ public class Treatment {
 		diagnosisPanel_1_1.setBounds(221, 200, 176, 68);
 		dewormingPanel.add(diagnosisPanel_1_1);
 		
-		JRadioButton yesDwrm_Rdo = new JRadioButton("Yes\r\n");
+		JRadioButton yesDwrm_Rdo = new JRadioButton("YeS");
 		yesDwrm_Rdo.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		yesDwrm_Rdo.setBackground(new Color(255, 228, 225));
 		yesDwrm_Rdo.setBounds(17, 18, 68, 23);
@@ -224,6 +229,10 @@ public class Treatment {
 		noDwrm_Rdo.setBackground(new Color(255, 228, 225));
 		noDwrm_Rdo.setBounds(87, 18, 85, 23);
 		diagnosisPanel_1_1.add(noDwrm_Rdo);
+		
+		ButtonGroup dewormingGroup = new ButtonGroup();
+        dewormingGroup.add(yesDwrm_Rdo);
+        dewormingGroup.add(noDwrm_Rdo);
 		
 		JPanel treatmentPlan_Panel = new JPanel();
 		treatmentPlan_Panel.setLayout(null);
@@ -258,7 +267,7 @@ public class Treatment {
 		followUp_Panel.setBounds(417, 210, 176, 54);
 		dewormingPanel.add(followUp_Panel);
 		
-		JRadioButton yesFlw_Rdo = new JRadioButton("Yes\r\n");
+		JRadioButton yesFlw_Rdo = new JRadioButton("Yes");
 		yesFlw_Rdo.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		yesFlw_Rdo.setBackground(new Color(255, 228, 225));
 		yesFlw_Rdo.setBounds(17, 18, 68, 23);
@@ -269,6 +278,10 @@ public class Treatment {
 		noFlw_Rdo.setBackground(new Color(255, 228, 225));
 		noFlw_Rdo.setBounds(92, 18, 85, 23);
 		followUp_Panel.add(noFlw_Rdo);
+		
+		ButtonGroup follow_upGroup = new ButtonGroup();
+		follow_upGroup.add(yesFlw_Rdo);
+		follow_upGroup.add(noFlw_Rdo);
 		
 		JButton btnNewButton = new JButton("Save /  Print");
 		btnNewButton.setBounds(629, 210, 176, 34);
