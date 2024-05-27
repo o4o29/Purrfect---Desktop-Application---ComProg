@@ -66,6 +66,30 @@ public class DatabaseManager {
         }
     }
     
+    public void insertService(String petID, String serviceName, double prices, String description, String serviceType, String veterinarian) throws SQLException {
+        String query = "INSERT INTO services (PetID, ServiceName, Prices, Description, ServiceType, Veterinarian) VALUES (?, ?, ?, ?, ?, ?)";
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setString(1, petID);
+            statement.setString(2, serviceName);
+            statement.setDouble(3, prices);
+            statement.setString(4, description);
+            statement.setString(5, serviceType);
+            statement.setString(6, veterinarian);
+            statement.executeUpdate();
+        }
+    }
+
+    public void insertPrescription(String petID, String presName, String dosage, String dosageInstruction, String duration) throws SQLException {
+        String query = "INSERT INTO prescription (PetID, PresName, Dosage, DosageInstruction, Duration) VALUES (?, ?, ?, ?, ?)";
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setString(1, petID);
+            statement.setString(2, presName);
+            statement.setString(3, dosage);
+            statement.setString(4, dosageInstruction);
+            statement.setString(5, duration);
+            statement.executeUpdate();
+        }
+    
     public boolean checkClientExists(int clientID) throws SQLException {
         String query = "SELECT * FROM clients WHERE ClientID = ?";
         try (PreparedStatement statement = connection.prepareStatement(query)) {
