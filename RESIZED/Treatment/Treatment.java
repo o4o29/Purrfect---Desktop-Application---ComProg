@@ -218,7 +218,7 @@ public class Treatment {
 		diagnosisPanel_1_1.setBounds(221, 200, 176, 68);
 		dewormingPanel.add(diagnosisPanel_1_1);
 		
-		JRadioButton yesDwrm_Rdo = new JRadioButton("YeS");
+		JRadioButton yesDwrm_Rdo = new JRadioButton("Yes");
 		yesDwrm_Rdo.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		yesDwrm_Rdo.setBackground(new Color(255, 228, 225));
 		yesDwrm_Rdo.setBounds(17, 18, 68, 23);
