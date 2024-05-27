@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.PreparedStatement;
 
 public class DatabaseManager {
-    private static final String URL = "jdbc:mysql://localhost:3306/purrfect_db";
+    private static final String URL = "jdbc:mysql://localhost:3306/db_purrfect";
     private static final String USER = "root";
     private static final String PASSWORD = "";
     private Connection connection;
@@ -38,10 +38,9 @@ public class DatabaseManager {
         }
     }
 
-    
     // METHODS
     public void insertClient(String firstname, String lastname, String address, String contact, String email) throws SQLException {
-        String query = "INSERT INTO client (firstname, lastname, address, contact, email) VALUES (?, ?, ?, ?, ?)";
+        String query = "INSERT INTO clients (ClientFName, ClientLName, ClientAddress, ClientContact, ClientEmail) VALUES (?, ?, ?, ?, ?)";
         try (PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setString(1, firstname);
             statement.setString(2, lastname);
@@ -53,7 +52,7 @@ public class DatabaseManager {
     }
     
     public void insertPet(String ownerID, String petname, String petspecies, String petbreed, String petgender, String petweight, String petage, String petcolor) throws SQLException {
-    	String query = "INSERT INTO pet (ownerId, petname, speci, breed, gender, weight, age, color) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    	String query = "INSERT INTO pets (ClientID, PetName, PetSpecies, PetBreed, PetGender, PetWeight, PetAge, PetColor) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
     	try (PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setString(1, ownerID);
             statement.setString(2, petname);
@@ -68,7 +67,7 @@ public class DatabaseManager {
     }
     
     public boolean checkClientExists(int clientID) throws SQLException {
-        String query = "SELECT * FROM client WHERE clientID = ?";
+        String query = "SELECT * FROM clients WHERE ClientID = ?";
         try (PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setInt(1, clientID);
             ResultSet resultSet = statement.executeQuery();
@@ -77,7 +76,7 @@ public class DatabaseManager {
     }
 
     public ResultSet getClientInformation(int clientID) throws SQLException {
-        String query = "SELECT * FROM client WHERE clientID = ?";
+        String query = "SELECT * FROM clients WHERE ClientID = ?";
         PreparedStatement statement = connection.prepareStatement(query);
         statement.setInt(1, clientID);
         return statement.executeQuery();
