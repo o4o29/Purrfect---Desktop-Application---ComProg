@@ -89,7 +89,7 @@ public class DatabaseManager {
             statement.setString(5, duration);
             statement.executeUpdate();
         }
-    
+    }
     public boolean checkClientExists(int clientID) throws SQLException {
         String query = "SELECT * FROM clients WHERE ClientID = ?";
         try (PreparedStatement statement = connection.prepareStatement(query)) {
