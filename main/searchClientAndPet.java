@@ -1,9 +1,20 @@
 import javax.swing.*;
+import java.util.List;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.AbstractTableModel;
+
+import com.mysql.cj.jdbc.result.ResultSetMetaData;
+
 import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class searchClientAndPet extends JFrame {
     private static final long serialVersionUID = 1L;
@@ -11,11 +22,18 @@ public class searchClientAndPet extends JFrame {
     private JTextField petId_field;
     private JTextField clientId_field;
     private JFrame dashboardFrame;
+    private JTextField surnameField;
+    private JPopupMenu surnameSuggestionsMenu;
     
+    private JTable clientDataTable;
+    private JScrollPane clientDataScrollPane;
+    
+    private List<String> surnameList;
+
     
  // ----------------------------------------------------------------------------------------------------------------------------------
     private void initialize() {
-        setSize(900, 600);
+        setSize(850, 550);
         setResizable(false);
         setLocationRelativeTo(null);
 
@@ -24,28 +42,28 @@ public class searchClientAndPet extends JFrame {
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
         contentPane.setLayout(null);
+        
+        JLabel lblNewLabel_2_2 = new JLabel("PURRFECT");
+        lblNewLabel_2_2.setForeground(new Color(255, 20, 147));
+        lblNewLabel_2_2.setFont(new Font("Verdana", Font.BOLD, 60));
+        lblNewLabel_2_2.setBounds(250, 11, 375, 75);
+        contentPane.add(lblNewLabel_2_2);
 
-        JLabel lblNewLabel = new JLabel("CLIENT AND PET");
+        JLabel lblNewLabel = new JLabel("CLIENT AND PET INFORMATION");
         lblNewLabel.setForeground(Color.WHITE);
-        lblNewLabel.setFont(new Font("Verdana", Font.BOLD, 55));
-        lblNewLabel.setBounds(174, 23, 532, 75);
+        lblNewLabel.setFont(new Font("Verdana", Font.BOLD, 35));
+        lblNewLabel.setBounds(107, 71, 638, 75);
         contentPane.add(lblNewLabel);
-
-        JLabel lblNewLabel_1 = new JLabel("INFORMATION\r\n");
-        lblNewLabel_1.setFont(new Font("Verdana", Font.BOLD, 35));
-        lblNewLabel_1.setForeground(Color.WHITE);
-        lblNewLabel_1.setBounds(280, 83, 304, 61);
-        contentPane.add(lblNewLabel_1);
 
         JTextArea textArea = new JTextArea();
         textArea.setEditable(false);
         textArea.setBackground(new Color(255, 182, 193));
-        textArea.setBounds(0, 0, 884, 153);
+        textArea.setBounds(0, 0, 834, 143);
         contentPane.add(textArea);
 
         JPanel mainPanel = new JPanel();
         mainPanel.setBackground(new Color(255, 182, 193));
-        mainPanel.setBounds(138, 177, 591, 353);
+        mainPanel.setBounds(177, 164, 591, 336);
         contentPane.add(mainPanel);
         mainPanel.setLayout(null);
 
@@ -55,8 +73,8 @@ public class searchClientAndPet extends JFrame {
         searcClientIDPanel.setBackground(new Color(255, 228, 225));
         searcClientIDPanel.setLayout(null);
 
-        JLabel lblNewLabel_2 = new JLabel("Search Client ID:");
-        lblNewLabel_2.setBounds(63, 21, 163, 14);
+        JLabel lblNewLabel_2 = new JLabel("Search Client");
+        lblNewLabel_2.setBounds(75, 11, 106, 25);
         searcClientIDPanel.add(lblNewLabel_2);
         lblNewLabel_2.setFont(new Font("Verdana", Font.PLAIN, 15));
 
@@ -64,9 +82,10 @@ public class searchClientAndPet extends JFrame {
         clientId_field.setBounds(44, 57, 157, 20);
         searcClientIDPanel.add(clientId_field);
         clientId_field.setColumns(10);
-
+        
+        
         JButton clientIdBtn = new JButton("SEARCH");
-        clientIdBtn.setBounds(90, 88, 79, 25);
+        clientIdBtn.setBounds(44, 88, 157, 25);
         searcClientIDPanel.add(clientIdBtn);
         clientIdBtn.setFont(new Font("Tahoma", Font.PLAIN, 13));
         clientIdBtn.setBackground(new Color(255, 240, 245));
@@ -88,7 +107,8 @@ public class searchClientAndPet extends JFrame {
         petId_field.setColumns(10);
 
         JButton petIdBtn = new JButton("SEARCH");
-        petIdBtn.setBounds(91, 88, 79, 25);
+        petIdBtn.setHorizontalTextPosition(SwingConstants.CENTER);
+        petIdBtn.setBounds(51, 88, 157, 25);
         searchPetIDPanel.add(petIdBtn);
         petIdBtn.setFont(new Font("Tahoma", Font.PLAIN, 13));
         petIdBtn.setBackground(new Color(255, 240, 245));
@@ -96,17 +116,17 @@ public class searchClientAndPet extends JFrame {
         JPanel searchPetIDPanel_1 = new JPanel();
         searchPetIDPanel_1.setLayout(null);
         searchPetIDPanel_1.setBackground(new Color(255, 228, 225));
-        searchPetIDPanel_1.setBounds(175, 227, 253, 115);
+        searchPetIDPanel_1.setBounds(175, 219, 253, 95);
         mainPanel.add(searchPetIDPanel_1);
 
         JButton btnCreate = new JButton("CREATE");
-        btnCreate.setBounds(78, 63, 101, 25);
+        btnCreate.setBounds(77, 48, 101, 25);
         searchPetIDPanel_1.add(btnCreate);
         btnCreate.setFont(new Font("Tahoma", Font.PLAIN, 13));
         btnCreate.setBackground(new Color(255, 240, 245));
 
         JLabel btnNewClient = new JLabel("NEW CLIENT?");
-        btnNewClient.setBounds(70, 37, 134, 14);
+        btnNewClient.setBounds(69, 22, 134, 14);
         searchPetIDPanel_1.add(btnNewClient);
         btnNewClient.setFont(new Font("Verdana", Font.BOLD, 15));
 
@@ -137,18 +157,37 @@ public class searchClientAndPet extends JFrame {
         });
 
         clientIdBtn.addActionListener(e -> { // search a client
-            try {
-                int clientId = Integer.parseInt(clientId_field.getText());
+        	try {
+        		String input = clientId_field.getText().trim();
                 DatabaseManager dbManager = DatabaseManager.getInstance();
-                boolean clientExists = dbManager.doesClientExist(clientId);
-
-                if (clientExists) {
-                    resultClientInformation.getClientID(clientId);
-                } else {
-                    JOptionPane.showMessageDialog(this, "Client not found", "Error", JOptionPane.ERROR_MESSAGE);
+                if (input.contains(",")) { // Search by surname
+                    String[] names = input.split(",", 2); // Split into last name and first name
+                    String lastName = names[0].trim();
+                    String firstName = names[1].trim();
+                    ResultSet resultSet = dbManager.searchClientBySurname(lastName);
+                    boolean found = false;
+                    while (resultSet.next()) {
+                        if (resultSet.getString("lastName").equalsIgnoreCase(lastName)
+                                && resultSet.getString("firstName").equalsIgnoreCase(firstName)) {
+                            resultClientInformation.getClientID(resultSet.getInt("clientID"));
+                            found = true;
+                            break;
+                        }
+                    }
+                    if (!found) {
+                        JOptionPane.showMessageDialog(this, "Client not found", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                } else { // Search by ID
+                    int clientId = Integer.parseInt(input);
+                    boolean clientExists = dbManager.doesClientExist(clientId);
+                    if (clientExists) {
+                        resultClientInformation.getClientID(clientId);
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Client not found", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
                 }
             } catch (NumberFormatException ex) {
-                JOptionPane.showMessageDialog(this, ex + " Please enter a valid client ID", "Invalid Input", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Please enter a valid client ID", "Invalid Input", JOptionPane.ERROR_MESSAGE);
             } catch (SQLException ex) {
                 ex.printStackTrace();
                 JOptionPane.showMessageDialog(this, "An error occurred while searching for the client", "Error", JOptionPane.ERROR_MESSAGE);
@@ -179,9 +218,127 @@ public class searchClientAndPet extends JFrame {
             }
 
             clientId_field.setText("");
-            petId_field.setText("");
+            
+            JPopupMenu popupMenu = new JPopupMenu();
+            addPopup(clientId_field, popupMenu);
+            
+            JLabel lblNewLabel_2_3 = new JLabel("by ID or Surname:");
+            lblNewLabel_2_3.setFont(new Font("Verdana", Font.PLAIN, 15));
+            lblNewLabel_2_3.setBounds(54, 32, 147, 25);
+            searcClientIDPanel.add(lblNewLabel_2_3);
+            
+            
+        });
+        petId_field.setText("");
+        
+     // Initialize clientDataTable
+        clientDataTable = new JTable();
+
+        // Initialize clientDataScrollPane with clientDataTable as its view
+        clientDataScrollPane = new JScrollPane(clientDataTable);
+        clientDataScrollPane.setBounds(20, 220, 140, 280); // Adjust the bounds as needed
+        contentPane.add(clientDataScrollPane);
+
+
+        // Initialize surname list
+        surnameList = new ArrayList<>();
+
+        // Initialize surname suggestions menu
+        surnameSuggestionsMenu = new JPopupMenu();
+
+        // Add key listener to surnameField
+        clientId_field.addKeyListener(new KeyListener() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void keyPressed(KeyEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void keyReleased(KeyEvent e) {
+				String partialSurname = clientId_field.getText();
+                updateSurnameSuggestions(partialSurname);
+				
+			}
         });
     }
+
+    private void updateSurnameSuggestions(String partialSurname) {
+        surnameSuggestionsMenu.removeAll();
+        surnameList.clear();
+
+        if (partialSurname.isEmpty()) {
+            surnameSuggestionsMenu.setVisible(false);
+            return;
+        }
+
+        try {
+            DatabaseManager dbManager = DatabaseManager.getInstance();
+            ResultSet resultSet = dbManager.searchClientBySurname(partialSurname);
+
+            while (resultSet.next()) {
+                String surname = resultSet.getString("lastName");
+                String firstname = resultSet.getString("firstName");
+                surnameList.add(surname + ", " + firstname);
+                JMenuItem item = new JMenuItem(surname + ", " + firstname);
+                item.addActionListener(e -> {
+                	clientId_field.setText(surname + ", " + firstname);
+//                	updateClientDataTable(partialSurname);
+                    surnameSuggestionsMenu.setVisible(false);
+                });
+                surnameSuggestionsMenu.add(item);
+            }
+
+            // Show the suggestions menu just below the text field
+            surnameSuggestionsMenu.setFocusable(false); // Prevent the popup menu from taking focus
+            surnameSuggestionsMenu.show(clientId_field, 0, clientId_field.getHeight());
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            // Handle database error
+        }
+    }
+    
+//    private void updateClientDataTable(int clientId) {
+//        try {
+//            // Get client data from the database
+//            DatabaseManager dbManager = DatabaseManager.getInstance();
+//            ResultSet clientDataResultSet = dbManager.getClientById(clientId);
+//
+//            // Populate the table model
+//            ClientDataTableModel tableModel = new ClientDataTableModel(clientDataResultSet);
+//
+//            // Set the table model to the JTable
+//            clientDataTable.setModel(tableModel);
+//        } catch (SQLException ex) {
+//            ex.printStackTrace();
+//            // Handle database error
+//        }
+//    }
+//
+//    private void updateClientDataTable(String partialSurname) {
+//        try {
+//            // Get client data from the database
+//            DatabaseManager dbManager = DatabaseManager.getInstance();
+//            ResultSet clientDataResultSet = dbManager.searchClientBySurname(partialSurname);
+//
+//            // Populate the table model
+//            ClientDataTableModel tableModel = new ClientDataTableModel(clientDataResultSet);
+//
+//            // Set the table model to the JTable
+//            clientDataTable.setModel(tableModel);
+//        } catch (SQLException ex) {
+//            ex.printStackTrace();
+//            // Handle database error
+//        }
+//    }
+
+    // Inner class for the table model
     // ----------------------------------------------------------------------------------------------------------------------------------
     
     
@@ -199,4 +356,21 @@ public class searchClientAndPet extends JFrame {
             new searchClientAndPet();
         });
     }
+	private static void addPopup(Component component, final JPopupMenu popup) {
+		component.addMouseListener(new MouseAdapter() {
+			public void mousePressed(MouseEvent e) {
+				if (e.isPopupTrigger()) {
+					showMenu(e);
+				}
+			}
+			public void mouseReleased(MouseEvent e) {
+				if (e.isPopupTrigger()) {
+					showMenu(e);
+				}
+			}
+			private void showMenu(MouseEvent e) {
+				popup.show(e.getComponent(), e.getX(), e.getY());
+			}
+		});
+	}
 }
