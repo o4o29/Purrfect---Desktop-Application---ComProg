@@ -25,9 +25,6 @@ public class searchClientAndPet extends JFrame {
     private JTextField surnameField;
     private JPopupMenu surnameSuggestionsMenu;
     
-    private JTable clientDataTable;
-    private JScrollPane clientDataScrollPane;
-    
     private List<String> surnameList;
 
     
@@ -230,14 +227,6 @@ public class searchClientAndPet extends JFrame {
             
         });
         petId_field.setText("");
-        
-     // Initialize clientDataTable
-        clientDataTable = new JTable();
-
-        // Initialize clientDataScrollPane with clientDataTable as its view
-        clientDataScrollPane = new JScrollPane(clientDataTable);
-        clientDataScrollPane.setBounds(20, 220, 140, 280); // Adjust the bounds as needed
-        contentPane.add(clientDataScrollPane);
 
 
         // Initialize surname list
