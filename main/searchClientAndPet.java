@@ -1,10 +1,6 @@
 import javax.swing.*;
 import java.util.List;
 import javax.swing.border.EmptyBorder;
-import javax.swing.table.AbstractTableModel;
-
-import com.mysql.cj.jdbc.result.ResultSetMetaData;
-
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -22,7 +18,6 @@ public class searchClientAndPet extends JFrame {
     private JTextField petId_field;
     private JTextField clientId_field;
     private JFrame dashboardFrame;
-    private JTextField surnameField;
     private JPopupMenu surnameSuggestionsMenu;
     
     private List<String> surnameList;
@@ -30,7 +25,7 @@ public class searchClientAndPet extends JFrame {
     
  // ----------------------------------------------------------------------------------------------------------------------------------
     private void initialize() {
-        setSize(850, 550);
+        setSize(900, 600);
         setResizable(false);
         setLocationRelativeTo(null);
 
@@ -43,24 +38,24 @@ public class searchClientAndPet extends JFrame {
         JLabel lblNewLabel_2_2 = new JLabel("PURRFECT");
         lblNewLabel_2_2.setForeground(new Color(255, 20, 147));
         lblNewLabel_2_2.setFont(new Font("Verdana", Font.BOLD, 60));
-        lblNewLabel_2_2.setBounds(250, 11, 375, 75);
+        lblNewLabel_2_2.setBounds(263, 11, 634, 75);
         contentPane.add(lblNewLabel_2_2);
 
         JLabel lblNewLabel = new JLabel("CLIENT AND PET INFORMATION");
         lblNewLabel.setForeground(Color.WHITE);
         lblNewLabel.setFont(new Font("Verdana", Font.BOLD, 35));
-        lblNewLabel.setBounds(107, 71, 638, 75);
+        lblNewLabel.setBounds(120, 71, 777, 75);
         contentPane.add(lblNewLabel);
 
         JTextArea textArea = new JTextArea();
         textArea.setEditable(false);
         textArea.setBackground(new Color(255, 182, 193));
-        textArea.setBounds(0, 0, 834, 143);
+        textArea.setBounds(0, 0, 884, 143);
         contentPane.add(textArea);
 
         JPanel mainPanel = new JPanel();
         mainPanel.setBackground(new Color(255, 182, 193));
-        mainPanel.setBounds(177, 164, 591, 336);
+        mainPanel.setBounds(192, 182, 591, 336);
         contentPane.add(mainPanel);
         mainPanel.setLayout(null);
 
@@ -237,6 +232,14 @@ public class searchClientAndPet extends JFrame {
 
         // Add key listener to surnameField
         clientId_field.addKeyListener(new KeyListener() {
+
+			@Override
+			public void keyReleased(KeyEvent e) {
+				String partialSurname = clientId_field.getText();
+                updateSurnameSuggestions(partialSurname);
+				
+			}
+
 			@Override
 			public void keyTyped(KeyEvent e) {
 				// TODO Auto-generated method stub
@@ -246,13 +249,6 @@ public class searchClientAndPet extends JFrame {
 			@Override
 			public void keyPressed(KeyEvent e) {
 				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void keyReleased(KeyEvent e) {
-				String partialSurname = clientId_field.getText();
-                updateSurnameSuggestions(partialSurname);
 				
 			}
         });
